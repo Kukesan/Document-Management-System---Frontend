@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { UserInformation } from 'src/app/_interfaces/userinfo.model';
+import { UserForRegistrationDto } from 'src/app/_interfaces/user/userForRegistrationDto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,7 @@ export class UserinfoService {
 
   baseUrl = "https://localhost:5001/api/UserInformations"
 
-  getUser():Observable<UserInformation[]>{
-    return this.http.get<UserInformation[]>(this.baseUrl);
+  getUser():Observable<UserForRegistrationDto[]>{
+    return this.http.get<UserForRegistrationDto[]>(this.baseUrl);
   }
 }

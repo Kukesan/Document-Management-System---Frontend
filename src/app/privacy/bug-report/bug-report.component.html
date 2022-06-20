@@ -1,11 +1,12 @@
 <div class="trashtable">
   <table>
       <tr>
+        <th>Email</th>
         <th>Notifications</th>
         <th>Created Date</th>
       </tr><br>
       <tr *ngFor="let issue of issues">
-          <td></td>
+          <td>{{issue.userEmail}}</td> 
           <td>{{issue.description}}</td>
           <td>{{issue.createdDate}}</td>
       </tr>
