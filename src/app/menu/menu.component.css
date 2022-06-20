@@ -3,3 +3,9 @@
     font-style: italic;
     color: #fff;
 }
+.topnavicon{
+    width: 35px; 
+    margin-right: 20px;
+    -webkit-filter: grayscale(1) invert(1);
+    filter: grayscale(1) invert(1);
+  }

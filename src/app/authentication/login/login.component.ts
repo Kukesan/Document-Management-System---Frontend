@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit {
       next: (res:AuthResponseDto) => {
        localStorage.setItem("token", res.token);
        this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
+       console.log(login.username);
        this.router.navigate([this.returnUrl]);
     },
     error: (err: HttpErrorResponse) => {

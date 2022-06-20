@@ -1,0 +1,39 @@
+<div class="trashtable">
+    <form #Form="ngForm" (ngSubmit)="addNotification()">
+      <!-- <div class="form-group">
+        <p><label for="email" style="color: white;">UserId</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter UserId" name="UserId" [(ngModel)]="notification.id">
+      </div> -->
+      <div class="form-group">
+        <p><label for="pwd" style="color: white;">Description</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="message"  [(ngModel)]="notification.message">
+      </div>
+      <button type="submit" class="button button5">Submit</button><br>
+      <div class="row"  *ngIf="submitMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success" >
+              <strong>Notification sent Success!</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="row"  *ngIf="updateMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success" >
+              <strong>Notification Updated Success!</strong> Please Refresh the page
+          </p>
+        </div>
+      </div>
+    </form>
+
+    <table>
+        <tr>
+          <th>Notifications</th>
+        </tr>
+        <tr (click)="pop(notification)"  *ngFor="let notification of notifications">
+            <td  >{{ notification.message }}</td>
+            <button class="button button4" (click)="updateNotification(notification)">Edit</button>
+            <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button>
+        </tr>
+    </table>
+  </div>

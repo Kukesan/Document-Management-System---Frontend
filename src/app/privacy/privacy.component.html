@@ -1,5 +1,19 @@
 <section style="margin-left: 15px;">
-  <h2>Private Files</h2>
-  <br>
-  <p>You have access to this page ! </p>
+  <p >You have access to this page ! </p>
 </section>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <div class="row1">
+    <div class="column side" >
+      <div class="sidebar">
+        <a routerLink="/define-user" ><img class="navicon" src="https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_add_48px-512.png">Define User</a>
+        <a routerLink="/manage-user"><img class="navicon" src="https://cdn4.iconfinder.com/data/icons/business-and-office-line-vol-4/52/documents__records__information__storage-256.png">Manage User</a>
+        <a routerLink="/admin-notification"><img class="navicon" src="https://cdn1.iconfinder.com/data/icons/material-design-icons-light/24/bell-256.png">Admin-Notification</a>
+        <a routerLink="/bug-report"><img class="navicon" src="https://cdn1.iconfinder.com/data/icons/document-edit-line/64/Document-doc-file-folder-bundle-sheaf-archive-256.png" >Issue Reports</a>
+        <a routerLink="/admin-settings"><img class="navicon" src="https://cdn3.iconfinder.com/data/icons/web-and-seo-31/16/setting-gear-cog-256.png">Admin-Settings</a>
+      </div>
+    </div>
+    <div class="column middle">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+

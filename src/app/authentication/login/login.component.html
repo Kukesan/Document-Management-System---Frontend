@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-body">
-      <h1 class="card-title">Login</h1>
+      <h1 class="card-title" style="color: white;">Login</h1>
 
       <div *ngIf="showError" class="alert alert-danger" role="alert">
           {{errorMessage}}
@@ -8,8 +8,8 @@
       
       <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
           <div class="mb-3 row">
-              <label for="username" class="col-form-label col-sm-2">Username:</label>
-              <div class="col-md-5">
+              <label for="username" class="col-form-label">User Email :</label>
+              <div class="col-md-12">
                   <input type="text" id="username" formControlName="username" class="form-control" />
               </div>
               <div class="col-md-5">
@@ -17,8 +17,8 @@
               </div>
           </div>
           <div class="mb-3 row">
-              <label for="password" class="col-form-label col-sm-2">Password:</label>
-              <div class="col-md-5">
+              <label for="password" class="col-form-label ">Password :</label>
+              <div class="col-md-12">
                   <input type="password" id="password" formControlName="password" class="form-control" />
               </div>
               <div class="col-md-5">
@@ -28,9 +28,13 @@
           <br>
           <div class="mb-3 row">
               <div class="col-md-1">
-                  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>
+                  <button type="submit" class="btn btn-primary" style="background-color:#3EA977; border: #3EA977;" [disabled]="!loginForm.valid">Login</button>
               </div>
+          </div>
+          <div class="mb-3 row">
+            <a>Forgotten Password & Username</a>
           </div>
       </form>
   </div>
+        <img src="">
 </div>

@@ -8,6 +8,7 @@ import { RepositoryService } from '../shared/services/repository.service';
 })
 export class PrivacyComponent implements OnInit {
   claims: [] = [];
+  isAdmin: boolean;
 
   constructor(private repository: RepositoryService) { }
   

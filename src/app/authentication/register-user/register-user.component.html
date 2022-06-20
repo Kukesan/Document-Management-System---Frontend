@@ -1,27 +1,21 @@
-<div class="card">
+<div class="card2">
   <div class="card-body">
-    <h1 class="card-title">Register</h1>
+    <h1 class="card-title" style="color: white;">Register</h1>
 
     <div *ngIf="showError" class="alert alert-danger" role="alert">
       <span [innerHTML]="errorMessage"></span>
     </div>
 
     <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
-      <div class="mb-3 row">
-        <label for="firstName" class="col-form-label col-sm-2">First Name:</label>
-        <div class="col-md-5">
-          <input type="text" id="firstName" formControlName="firstName" class="form-control" />
-        </div>
-      </div>
-      <div class="mb-3 row">
-        <label for="lastName" class="col-form-label col-sm-2">Last Name:</label>
-        <div class="col-md-5">
-          <input type="text" id="lastName" formControlName="lastName" class="form-control" />
+      <div class="mb-4 row">
+        <label for="userId" class="col-form-label col-sm-2">User ID:</label>
+        <div class="col-md-8">
+          <input type="text" id="userId" formControlName="userId" class="form-control" />
         </div>
       </div>
       <div class="mb-3 row">
         <label for="email" class="col-form-label col-sm-2">Email:</label>
-        <div class="col-md-5">
+        <div class="col-md-8">
           <input type="email" id="email" formControlName="email" class="form-control" />
         </div>
         <div class="col-md-5">
@@ -30,8 +24,38 @@
         </div>
       </div>
       <div class="mb-3 row">
+        <label for="fullName" class="col-form-label col-sm-2">Full Name:</label>
+        <div class="col-md-8">
+          <input type="text" id="fullName" formControlName="fullName" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="address" class="col-form-label col-sm-2">Address:</label>
+        <div class="col-md-8">
+          <input type="text" id="address" formControlName="address" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="city" class="col-form-label col-sm-2">City:</label>
+        <div class="col-md-8">
+          <input type="text" id="city" formControlName="city" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="jobPosition" class="col-form-label col-sm-2">JobPosition:</label>
+        <div class="col-md-8">
+          <input type="text" id="jobPosition" formControlName="jobPosition" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="telephoneNo" class="col-form-label col-sm-2" >Telephone Number:</label>
+        <div class="col-md-8">
+          <input type="text" id="telephoneNo" formControlName="telephoneNo" class="form-control" />
+        </div>
+      </div>
+      <div class="mb-3 row">
         <label for="password" class="col-form-label col-sm-2">Password:</label>
-        <div class="col-md-5">
+        <div class="col-md-8">
           <input type="password" id="password" formControlName="password" class="form-control" />
         </div>
         <div class="col-md-5">
@@ -40,7 +64,7 @@
       </div>
       <div class="mb-3 row">
         <label for="confirm" class="col-form-label col-sm-2">Confirm Password:</label>
-        <div class="col-md-5">
+        <div class="col-md-8">
           <input type="password" id="confirm" formControlName="confirm" class="form-control" />
         </div>
         <div class="col-md-5">
@@ -52,7 +76,7 @@
       <br>
       <div class="mb-3 row">
         <div class="col-md-1">
-          <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Register</button>
+          <button type="submit" class="btn btn-primary" style="background-color:#3EA977; border: #3EA977;" [disabled]="!registerForm.valid">Register</button>
         </div>
       </div>
     </form>

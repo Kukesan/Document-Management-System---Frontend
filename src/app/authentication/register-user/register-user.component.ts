@@ -21,9 +21,13 @@ export class RegisterUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
+      userId: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
+      fullName: new FormControl(''),
+      address: new FormControl(''),
+      city: new FormControl(''),
+      jobPosition: new FormControl(''),
+      telephoneNo: new FormControl(''),
       password: new FormControl('', [Validators.required]),
       confirm: new FormControl('')
     });
@@ -44,9 +48,13 @@ export class RegisterUserComponent implements OnInit {
     const formValues = { ...registerFormValue };
 
     const user: UserForRegistrationDto = {
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
+      userId: formValues.userId,
       email: formValues.email,
+      fullName: formValues.fullName,
+      address: formValues.address,
+      city: formValues.city,
+      jobPosition: formValues.jobPosition,
+      telephoneNo: formValues.telephoneNo,
       password: formValues.password,
       confirmPassword: formValues.confirm
     };
@@ -60,4 +68,13 @@ export class RegisterUserComponent implements OnInit {
       }
     })
   }
+  // getUser(){
+  //   this.authService.getUser()
+  //   .subscribe(
+  //     response =>{
+  //       this.user=response;
+  //       console.log(this.issues)
+  //     }
+  //   )
+  // }
 }

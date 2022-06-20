@@ -22,9 +22,10 @@ export class MenuComponent implements OnInit {
     this.authService.authChanged
     .subscribe(res => {
       this.isUserAuthenticated = res;
+     
     })
   }
-
+  
   public logout = () => {
     this.authService.logout();
     this.router.navigate(["/"]);
