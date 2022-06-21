@@ -1,5 +1,5 @@
 export interface UserInformations {
-    id:string;
+    id:number;
     empId: string;
     firstName: string;
     lastName:string;
@@ -7,4 +7,4 @@ export interface UserInformations {
     city: string;
     jobPosition: string;
     telephoneNo: string;
-}
+} 

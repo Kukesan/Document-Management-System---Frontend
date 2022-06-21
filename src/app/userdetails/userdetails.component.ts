@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserinfomationsService } from '../shared/services/userinfomations.service';
 import { UserInformations } from '../_interfaces/userdetails.model';
 
@@ -9,12 +10,12 @@ import { UserInformations } from '../_interfaces/userdetails.model';
 })
 export class UserdetailsComponent implements OnInit {
 
-  constructor(private userinformationService :UserinfomationsService) { }
+  constructor(private userinformationService :UserinfomationsService,private router: Router) { }
 
   form: any = {};
   userinformations : UserInformations[] = [];
   userinformation : UserInformations={
-    id:'',
+    id:0,
     empId: '',
     firstName: '',
     lastName:'',
@@ -27,10 +28,10 @@ export class UserdetailsComponent implements OnInit {
   ngOnInit(): void {
   }
   addUser(){
-      console.log("100");
       this.userinformationService.addUser(this.userinformation)
       .subscribe(
         (response: any)=>{
+          this.router.navigate(["/dashboard"]);
         }
       )
   }

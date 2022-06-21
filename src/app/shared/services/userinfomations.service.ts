@@ -13,7 +13,11 @@ export class UserinfomationsService {
   baseUrl="https://localhost:5001/api/UserInformations"
 
   addUser(userinformations:UserInformations):Observable<UserInformations>{
-    parseInt(userinformations.id);
+    parseInt(userinformations.empId);
     return this.http.post<UserInformations>(this.baseUrl,userinformations);
+  }
+
+  getAllUsers():Observable<UserInformations[]>{
+    return this.http.get<UserInformations[]>(this.baseUrl);
   }
 }

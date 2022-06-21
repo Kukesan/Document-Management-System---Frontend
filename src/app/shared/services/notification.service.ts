@@ -14,7 +14,7 @@ export class NotificationService {
 
   getAllNotifications():Observable<Notification[]>{
     return this.http.get<Notification[]>(this.baseUrl);
-  }
+  } 
 
   addNotification(notification:Notification):Observable<Notification>{
     parseInt(notification.id);

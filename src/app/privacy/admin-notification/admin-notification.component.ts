@@ -26,7 +26,6 @@ export class AdminNotificationComponent implements OnInit {
   updateMsg:boolean=false;
   addNotification(){
     if(this.notification.id===0){
-      console.log("100");
       this.notificationService.addNotification(this.notification)
       .subscribe(
         (response: any)=>{
