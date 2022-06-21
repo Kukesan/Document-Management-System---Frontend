@@ -35,6 +35,8 @@ import { BugReportComponent } from './privacy/bug-report/bug-report.component';
 import { AdminSettingsComponent } from './privacy/admin-settings/admin-settings.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
+import { DownloadComponent } from './dashboard/documents/download/download.component';
+import { UploadComponent } from './dashboard/documents/upload/upload.component';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -66,7 +68,9 @@ export function tokenGetter() {
     BugReportComponent,
     AdminSettingsComponent,
     WelcomeComponent,
-    UserdetailsComponent
+    UserdetailsComponent,
+    DownloadComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -95,6 +99,8 @@ export function tokenGetter() {
       {path:'bug-report',component:BugReportComponent},
       {path:'admin-settings',component:AdminSettingsComponent},
       {path:'userdetails',component:UserdetailsComponent},
+      {path:'upload',component:UploadComponent},
+      {path:'download',component:DownloadComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},
