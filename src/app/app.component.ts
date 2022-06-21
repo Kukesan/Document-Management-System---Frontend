@@ -8,6 +8,7 @@ import { AuthenticationService } from './shared/services/authentication.service'
 })
 export class AppComponent implements OnInit {
   title = 'AngularClient';
+  isUserAuthenticated: boolean;
 
   constructor(private authService: AuthenticationService){}
   

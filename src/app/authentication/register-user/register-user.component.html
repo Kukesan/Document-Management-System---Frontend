@@ -7,12 +7,12 @@
     </div>
 
     <form [formGroup]="registerForm" autocomplete="off" novalidate (ngSubmit)="registerUser(registerForm.value)">
-      <div class="mb-4 row">
+      <!-- <div class="mb-4 row">
         <label for="userId" class="col-form-label col-sm-2">User ID:</label>
         <div class="col-md-8">
           <input type="text" id="userId" formControlName="userId" class="form-control" />
         </div>
-      </div>
+      </div> -->
       <div class="mb-3 row">
         <label for="email" class="col-form-label col-sm-2">Email:</label>
         <div class="col-md-8">
@@ -23,7 +23,7 @@
           <em *ngIf="validateControl('email') && hasError('email', 'required')">Email is required</em>
         </div>
       </div>
-      <div class="mb-3 row">
+      <!-- <div class="mb-3 row">
         <label for="fullName" class="col-form-label col-sm-2">Full Name:</label>
         <div class="col-md-8">
           <input type="text" id="fullName" formControlName="fullName" class="form-control" />
@@ -52,7 +52,7 @@
         <div class="col-md-8">
           <input type="text" id="telephoneNo" formControlName="telephoneNo" class="form-control" />
         </div>
-      </div>
+      </div> -->
       <div class="mb-3 row">
         <label for="password" class="col-form-label col-sm-2">Password:</label>
         <div class="col-md-8">

@@ -1,6 +1,6 @@
-import { Company } from './../../_interfaces/company.model';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'; 
+import { Company } from 'src/app/_interfaces/company.model';
 import { EnvironmentUrlService } from './environment-url.service';
 
 @Injectable({

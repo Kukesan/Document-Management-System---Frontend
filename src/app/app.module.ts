@@ -33,7 +33,8 @@ import { DefineUserComponent } from './privacy/define-user/define-user.component
 import { ManageUserComponent } from './privacy/manage-user/manage-user.component';
 import { BugReportComponent } from './privacy/bug-report/bug-report.component';
 import { AdminSettingsComponent } from './privacy/admin-settings/admin-settings.component';
-import { UserdetailsComponent } from './dashboard/userdetails/userdetails.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { UserdetailsComponent } from './userdetails/userdetails.component';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -64,6 +65,7 @@ export function tokenGetter() {
     ManageUserComponent,
     BugReportComponent,
     AdminSettingsComponent,
+    WelcomeComponent,
     UserdetailsComponent
   ],
   imports: [

@@ -48,13 +48,13 @@ export class RegisterUserComponent implements OnInit {
     const formValues = { ...registerFormValue };
 
     const user: UserForRegistrationDto = {
-      userId: formValues.userId,
+      //userId: formValues.userId,
       email: formValues.email,
-      fullName: formValues.fullName,
-      address: formValues.address,
-      city: formValues.city,
-      jobPosition: formValues.jobPosition,
-      telephoneNo: formValues.telephoneNo,
+      // fullName: formValues.fullName,
+      // address: formValues.address,
+      // city: formValues.city,
+      // jobPosition: formValues.jobPosition,
+      // telephoneNo: formValues.telephoneNo,
       password: formValues.password,
       confirmPassword: formValues.confirm
     };

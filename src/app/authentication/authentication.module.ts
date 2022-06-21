@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     RegisterUserComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
