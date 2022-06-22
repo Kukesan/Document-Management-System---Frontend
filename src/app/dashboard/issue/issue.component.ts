@@ -23,22 +23,51 @@ export class IssueComponent implements OnInit {
   ngOnInit(): void {
     this.getAllIssues();
   }
-  
+
+  submitMsg: boolean = false;
+  updateMsg:boolean=false;
+  addIssue(){
+    if(this.issue.issueId===0){
+      this.issueService.addIssue(this.issue)
+      .subscribe(
+        (response: any)=>{
+          this.getAllIssues();
+          this.issue.description='';
+          this.submitMsg= true;
+        }
+      )
+    }else{
+      this.updateIssue(this.issue);
+      this.updateMsg=true;
+    }
+  }
   getAllIssues(){
     this.issueService.getAllIssues()
     .subscribe(
       response =>{
         this.issues=response;
-        console.log(this.issues)
       }
     )
   }
-  addIssue(){
-    console.log(this.issue)
-    this.issueService.addIssue(this.issue)
+
+  deleteIssue(id:string){
+    this.issueService.deleteIssue(id)
     .subscribe(
-      (response: any)=>{
-        console.log(response);
+      response=>{
+        this.getAllIssues();
+      }
+    )
+  }
+
+  pop(issue: Issue){
+    this.issue=issue;
+  }
+
+  
+  updateIssue(issue : Issue){
+    this.issueService.updateIssue(issue)
+    .subscribe(
+      response =>{
         this.getAllIssues();
       }
     )

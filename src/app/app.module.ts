@@ -40,6 +40,7 @@ import { UploadComponent } from './dashboard/documents/upload/upload.component';
 import { ShowUserComponent } from './privacy/manage-user/show-user/show-user.component';
 import { EditUserComponent } from './privacy/manage-user/edit-user/edit-user.component';
 import { InfoComponent } from './info/info.component';
+import { AuthenticationModule } from './authentication/authentication.module';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -84,6 +85,7 @@ export function tokenGetter() {
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    AuthenticationModule,
     CollapseModule.forRoot(),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },

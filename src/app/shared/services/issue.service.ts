@@ -22,4 +22,12 @@ export class IssueService {
   getAdminIssue():Observable<Issue[]>{
     return this.http.get<Issue[]>(this.baseUrl+'/'+'AdminGetIssuesDetails');
   }
+
+  deleteIssue(id:string):Observable<Issue>{
+    return this.http.delete<Issue>(this.baseUrl+'/'+id);
+  }
+
+  updateIssue(issue:Issue):Observable<Issue>{
+    return this.http.put<Issue>(this.baseUrl+'/'+issue.issueId,issue);
+  }
 }

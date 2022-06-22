@@ -21,9 +21,11 @@
           <th>Description</th>
           <th>Create Date</th>
         </tr>
-        <tr *ngFor="let issue of issues">
+        <tr (click)="pop(issue)" *ngFor="let issue of issues">
             <td>{{ issue.description }}</td>
-            <td>{{ issue.createdDate }}</td>
+            <td>{{ issue.createdDate }}</td> 
+            <button class="button button4" (click)="updateIssue(issue)">Edit</button>&nbsp; &nbsp;
+            <button class="button button3" (click)="deleteIssue(issue.issueId)">Delete</button>
          </tr>
     </table>
   </div>
