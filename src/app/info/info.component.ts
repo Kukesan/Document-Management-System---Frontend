@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserinfomationsService } from 'src/app/shared/services/userinfomations.service';
-import { UserInformations } from 'src/app/_interfaces/userdetails.model';
+import { UserinfomationsService } from '../shared/services/userinfomations.service';
+import { UserInformations } from '../_interfaces/userdetails.model';
 
 @Component({
-  selector: 'app-define-user',
-  templateUrl: './define-user.component.html',
-  styleUrls: ['./define-user.component.css']
+  selector: 'app-info',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.css']
 })
-export class DefineUserComponent implements OnInit {
+export class InfoComponent implements OnInit {
 
   constructor(private userinformationService :UserinfomationsService) { }
 
@@ -27,11 +27,11 @@ export class DefineUserComponent implements OnInit {
   }
  
   ngOnInit(): void {
-    this.getAllUsers();
+    this.getUser();
   }
   
-  private getAllUsers(){
-    this.userinformationService.getAllUsers()
+  getUser(){
+    this.userinformationService.getUser()
     .subscribe(
       response =>{
         this.userinformations=response;
@@ -53,7 +53,7 @@ export class DefineUserComponent implements OnInit {
     .subscribe(
       response =>{
         console.log( userinformation.userAccepted);
-        this.getAllUsers();
+        this.getUser();
       }
     )
   }

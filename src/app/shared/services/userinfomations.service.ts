@@ -17,7 +17,7 @@ export class UserinfomationsService {
     return this.http.post<UserInformations>(this.baseUrl,userinformations);
   }
 
-  getAllUsers():Observable<UserInformations[]>{
+  getUser():Observable<UserInformations[]>{
     return this.http.get<UserInformations[]>(this.baseUrl);
   }
 
@@ -27,5 +27,9 @@ export class UserinfomationsService {
   // }
   approveUser(userinformations:UserInformations):Observable<UserInformations>{
     return this.http.put<UserInformations>(this.baseUrl+'/'+userinformations.id,userinformations);
+  }
+
+  getAllUsers():Observable<UserInformations[]>{
+    return this.http.get<UserInformations[]>(this.baseUrl+'/'+'GetUserInfo');
   }
 }

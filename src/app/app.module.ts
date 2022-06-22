@@ -24,7 +24,7 @@ import { SearchComponent } from './dashboard/search/search.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { StarredComponent } from './dashboard/starred/starred.component';
 import { TrashComponent } from './dashboard/trash/trash.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueComponent } from './dashboard/issue/issue.component';
 import { AdminNotificationComponent } from './privacy/admin-notification/admin-notification.component';
 import { AdminSearchComponent } from './privacy/admin-search/admin-search.component';
@@ -37,6 +37,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { DownloadComponent } from './dashboard/documents/download/download.component';
 import { UploadComponent } from './dashboard/documents/upload/upload.component';
+import { ShowUserComponent } from './privacy/manage-user/show-user/show-user.component';
+import { EditUserComponent } from './privacy/manage-user/edit-user/edit-user.component';
+import { InfoComponent } from './info/info.component';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -70,12 +73,16 @@ export function tokenGetter() {
     WelcomeComponent,
     UserdetailsComponent,
     DownloadComponent,
-    UploadComponent
+    UploadComponent,
+    ShowUserComponent,
+    EditUserComponent,
+    InfoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     RouterModule.forRoot([
@@ -101,6 +108,9 @@ export function tokenGetter() {
       {path:'userdetails',component:UserdetailsComponent},
       {path:'upload',component:UploadComponent},
       {path:'download',component:DownloadComponent},
+      {path:'show-user',component:ShowUserComponent},
+      {path:'edit-user',component:EditUserComponent},
+      {path:'info',component:InfoComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},
