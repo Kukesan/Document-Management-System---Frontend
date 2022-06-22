@@ -7,4 +7,6 @@ export interface UserInformations {
     city: string;
     jobPosition: string;
     telephoneNo: string;
+    userAccepted:boolean;
+    userEmail:string;
 } 

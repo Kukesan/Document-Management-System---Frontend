@@ -1,1 +1,27 @@
-<p>define-user works!</p>
+<div class="trashtable">
+    <table>
+        <tr>
+            <th>Employee Id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Job Position</th>
+            <th>Telephone Number</th>
+        </tr>
+        <tr (click)="pop(notification)"  *ngFor="let userinformation of userinformations">
+            <td  >{{ userinformation.empId }}</td>
+            <td  >{{ userinformation.firstName }}</td>
+            <td  >{{ userinformation.lastName }}</td>
+            <td  >{{ userinformation.address }}</td>
+            <td  >{{ userinformation.city }}</td>
+            <td  >{{ userinformation.jobPosition }}</td>
+            <td>{{userinformation.telephoneNo}}</td>
+            <td>{{userinformation.userEmail}}</td>
+            <button (click)="approveUser(userinformation)">Approve</button>
+            <!-- <button class="button button4" (click)="updateNotification(notification)">Edit</button>
+            <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button> -->
+        </tr>
+    </table>
+    </div>
+    

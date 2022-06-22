@@ -8,32 +8,9 @@ import { UserInformations } from 'src/app/_interfaces/userdetails.model';
   styleUrls: ['./manage-user.component.css']
 })
 export class ManageUserComponent implements OnInit {
-
-  constructor(private userinformationService :UserinfomationsService) { }
-
-  form: any = {};
-  userinformations : UserInformations[] = [];
-  userinformation : UserInformations={
-    id:0,
-    empId: '',
-    firstName: '',
-    lastName:'',
-    address: '',
-    city: '',
-    jobPosition: '',
-    telephoneNo: ''
-  }
- 
+  constructor(){}
   ngOnInit(): void {
-    this.getAllUsers();
+    
   }
   
-  getAllUsers(){
-    this.userinformationService.getAllUsers()
-    .subscribe(
-      response =>{
-        this.userinformations=response;
-      }
-    )
-  }
 }

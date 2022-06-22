@@ -22,7 +22,9 @@ export class UserdetailsComponent implements OnInit {
     address: '',
     city: '',
     jobPosition: '',
-    telephoneNo: ''
+    telephoneNo: '',
+    userAccepted: false,
+    userEmail:''
   }
 
   ngOnInit(): void {
@@ -36,3 +38,4 @@ export class UserdetailsComponent implements OnInit {
       )
   }
 }
+ 

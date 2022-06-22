@@ -9,7 +9,12 @@ import { AuthenticationService } from '../shared/services/authentication.service
 export class WelcomeComponent implements OnInit {
   isUserAuthenticated: boolean;
 
-  constructor(private authService: AuthenticationService) { }
+  constructor(private authService: AuthenticationService) {
+    this.authService.authChanged
+    .subscribe(res => {
+      this.isUserAuthenticated = res;
+    })
+   }
 
   ngOnInit(): void {
     this.authService.authChanged

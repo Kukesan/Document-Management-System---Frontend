@@ -20,4 +20,12 @@ export class UserinfomationsService {
   getAllUsers():Observable<UserInformations[]>{
     return this.http.get<UserInformations[]>(this.baseUrl);
   }
+
+  // approveUser(boolean:userAccpted):Observable<UserInformations>{
+  //   //parseInt(userinformations.empId);
+  //   return this.http.post<UserInformations>(this.baseUrl,userinformations.userAccepted);
+  // }
+  approveUser(userinformations:UserInformations):Observable<UserInformations>{
+    return this.http.put<UserInformations>(this.baseUrl+'/'+userinformations.id,userinformations);
+  }
 }
