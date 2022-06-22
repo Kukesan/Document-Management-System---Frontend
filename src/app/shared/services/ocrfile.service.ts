@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class FileService {
+export class OcrfileService {
 
-  private url: string = 'https://localhost:5001/api/file';
+  private url: string = 'https://localhost:5001/api/fileOcr';
 
   constructor(private http: HttpClient) { }
 
@@ -55,6 +55,22 @@ export class FileService {
     return this.http.get(`${this.url}/getPhotos`); 
   }
 
-  
+  public scan(fileUrl: string){
+    return this.http.post(`${this.url}/Scan?fileUrl=${fileUrl}`,{
+    
+    reportProgress: true,
+    observe: 'events',
+    responseType: 'blob'
+    
+  })
+  }
+  public scandownload(){
+    return this.http.get(`${this.url}/scandownload`,{
+    
+    reportProgress: true,
+    observe: 'events',
+    responseType: 'blob'
+    
+  })
 }
-
+}

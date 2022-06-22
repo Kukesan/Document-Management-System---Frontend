@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WelcomeComponent } from './welcome.component';
+import { DeleteOCRComponent } from './delete-ocr.component';
 
-describe('WelcomeComponent', () => {
-  let component: WelcomeComponent;
-  let fixture: ComponentFixture<WelcomeComponent>;
+describe('DeleteOCRComponent', () => {
+  let component: DeleteOCRComponent;
+  let fixture: ComponentFixture<DeleteOCRComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      declarations: [ DeleteOCRComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WelcomeComponent);
+    fixture = TestBed.createComponent(DeleteOCRComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,53 @@
+.create{
+    width: 1000px;
+    border: 1px solid rgb(206, 195, 195);;
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: 1px 1px 1px gray;
+  }
+  
+  article section h1{
+    text-align: center;
+  }
+  section{
+    margin: 0 auto !important;
+  }
+  
+  .users{
+    width: 900px;
+    border: 2px solid rgb(206, 195, 195);;
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: 1px 1px 1px gray;
+    background-color: black;
+    color: aliceblue;
+  }
+  
+  .photos {
+    margin-top: 20px;
+  }
+  .photo {
+    margin-bottom: 5px;
+  }
+  .container{
+    background-color: black;
+    max-width: 100%;
+    width: 100%;
+  }
+  h2,h1{
+    color: aliceblue;
+  }
+  .mb-3{
+    color: aliceblue;
+  }
+  .alert-danger{
+    background-color:cadetblue;
+  }
+  .alert-danger{
+    color:hotpink;
+  }
+  td{
+    width: 200px;
+  }
+  
+  

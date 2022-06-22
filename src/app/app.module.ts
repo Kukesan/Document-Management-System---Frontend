@@ -33,7 +33,6 @@ import { DefineUserComponent } from './privacy/define-user/define-user.component
 import { ManageUserComponent } from './privacy/manage-user/manage-user.component';
 import { BugReportComponent } from './privacy/bug-report/bug-report.component';
 import { AdminSettingsComponent } from './privacy/admin-settings/admin-settings.component';
-import { WelcomeComponent } from './welcome/welcome.component';
 import { UserdetailsComponent } from './userdetails/userdetails.component';
 import { DownloadComponent } from './dashboard/documents/download/download.component';
 import { UploadComponent } from './dashboard/documents/upload/upload.component';
@@ -41,6 +40,9 @@ import { ShowUserComponent } from './privacy/manage-user/show-user/show-user.com
 import { EditUserComponent } from './privacy/manage-user/edit-user/edit-user.component';
 import { InfoComponent } from './info/info.component';
 import { AuthenticationModule } from './authentication/authentication.module';
+import { DownloadOCRComponent } from './dashboard/add/download-ocr/download-ocr.component';
+import { DeleteOCRComponent } from './dashboard/add/delete-ocr/delete-ocr.component';
+import { UploadOCRComponent } from './dashboard/add/upload-ocr/upload-ocr.component';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -71,13 +73,15 @@ export function tokenGetter() {
     ManageUserComponent,
     BugReportComponent,
     AdminSettingsComponent,
-    WelcomeComponent,
     UserdetailsComponent,
     DownloadComponent,
     UploadComponent,
     ShowUserComponent,
     EditUserComponent,
-    InfoComponent
+    InfoComponent,
+    DownloadOCRComponent,
+    DeleteOCRComponent,
+    UploadOCRComponent
   ],
   imports: [
     BrowserModule,
@@ -113,6 +117,9 @@ export function tokenGetter() {
       {path:'show-user',component:ShowUserComponent},
       {path:'edit-user',component:EditUserComponent},
       {path:'info',component:InfoComponent},
+      {path:'download-ocr',component:DownloadOCRComponent},
+      {path:'delete-ocr',component:DeleteOCRComponent},
+      {path:'upload-ocr',component:UploadComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},

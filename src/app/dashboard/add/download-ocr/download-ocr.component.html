@@ -1,0 +1,25 @@
+<div class="row mb-3 mt-3">
+    <div class="col-md-3">
+     
+      <!-- <button type="button" class="btn btn-success" (click)="delete()">Delete</button>
+      &nbsp;  &nbsp;  &nbsp; -->
+      
+      <button type="button" class="btn btn-success" (click)="scan()">Scan</button>
+      &nbsp;  &nbsp;  &nbsp;
+      <br><br>
+      <button type="button" class="btn btn-success" (click)="scandownload()">Text Download</button>
+      <!-- &nbsp;  &nbsp;  &nbsp;
+      <br><br>
+      <button type="button" class="btn btn-success" (click)="download()">Image Download</button> -->
+      
+    </div>
+    <div class="col-md-4">
+      <span class="download" *ngIf="progress > 0">
+        {{progress}}%
+      </span>
+      <span class="download">
+        {{message}}
+      </span>
+    </div>
+  </div>
+  

@@ -1,8 +1,17 @@
-.homeText{ 
-    font-size: 35px; 
-    color: red; 
-    text-align: center; 
-    position: relative; 
-    top:30px; 
-    text-shadow: 2px 2px 2px gray; 
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-image: url("https://www.bizportals365.com/wp-content/uploads/dms-features.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
 }
