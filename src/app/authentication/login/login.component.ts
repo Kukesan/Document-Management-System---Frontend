@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl("", [Validators.required]),
+      useremail: new FormControl("", [Validators.required,Validators.email]),
       password: new FormControl("", [Validators.required])
     })
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     const login = {... loginFormValue };
 
     const userForAuth: UserForAuthenticationDto = {
-      email: login.username,
+      email: login.useremail,
       password: login.password
     }
 
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
       next: (res:AuthResponseDto) => {
        localStorage.setItem("token", res.token);
        this.authService.sendAuthStateChangeNotification(res.isAuthSuccessful);
-       this.router.navigate(['app/welcome']);
+       this.router.navigate(['/home']);
     },
     error: (err: HttpErrorResponse) => {
       this.errorMessage = err.message;

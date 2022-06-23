@@ -15,7 +15,6 @@
   
   .users{
     width: 900px;
-    border: 2px solid rgb(206, 195, 195);;
     margin: 10px auto;
     padding: 10px;
     box-shadow: 1px 1px 1px gray;
@@ -29,10 +28,18 @@
   .photo {
     margin-bottom: 5px;
   }
-  .container{
-    background-color: black;
-    max-width: 100%;
-    width: 100%;
+  div.trashtable{
+    border-radius: 5px;
+    border: 1px;
+    border-color: #ddd;
+    border-style: groove;
+    padding: 15px;
+    margin-top: 30px;
+    background-color: #27293D;
+  
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
   }
   h2,h1{
     color: aliceblue;

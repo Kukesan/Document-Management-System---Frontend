@@ -1,40 +1,47 @@
-<div class="card">
-  <div class="card-body">
-      <h1 class="card-title" style="color: white;">Login</h1>
+<div class="bgcard"></div>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="card-title" style="color: white;">Login</h1>
 
-      <div *ngIf="showError" class="alert alert-danger" role="alert">
-          {{errorMessage}}
-      </div>
-      
-      <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
-          <div class="mb-3 row">
-              <label for="username" class="col-form-label">User Email :</label>
-              <div class="col-md-12">
-                  <input type="text" id="username" formControlName="username" class="form-control" />
-              </div>
-              <div class="col-md-5">
-                  <em *ngIf="validateControl('username') && hasError('username', 'required')">Username is required</em>
-              </div>
-          </div>
-          <div class="mb-3 row">
-              <label for="password" class="col-form-label ">Password :</label>
-              <div class="col-md-12">
-                  <input type="password" id="password" formControlName="password" class="form-control" />
-              </div>
-              <div class="col-md-5">
-                  <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is required</em>
-              </div>
-          </div>
-          <br>
-          <div class="mb-3 row">
-              <div class="col-md-1">
-                  <button type="submit" class="btn btn-primary" style="background-color:#3EA977; border: #3EA977;" [disabled]="!loginForm.valid">Login</button>
-              </div>
-          </div>
-          <div class="mb-3 row">
+            <div *ngIf="showError" class="alert alert-danger" role="alert" style="color: black;">
+                {{errorMessage}}
+            </div>
+
+            <form [formGroup]="loginForm" autocomplete="off" novalidate (ngSubmit)="loginUser(loginForm.value)">
+                <div class="mb-3 row">
+                    <label for="useremail" class="col-form-label">User Email :</label>
+                    <div class="col-md-12">
+                        <input type="text" id="useremail" formControlName="useremail" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('useremail') && hasError('useremail', 'email')">Please provide a valid email</em>
+                        <em *ngIf="validateControl('useremail') && hasError('useremail', 'required')">Email is required</em>
+                      </div>
+                    <!-- <div class="col-md-5" style="color: black;">
+                        <em *ngIf="validateControl('username') && hasError('username', 'required')">UserEmail is
+                            required</em>
+                    </div> -->
+                </div>
+                <div class="mb-3 row">
+                    <label for="password" class="col-form-label ">Password :</label>
+                    <div class="col-md-12">
+                        <input type="password" id="password" formControlName="password" class="form-control" />
+                    </div>
+                    <div class="col-md-5">
+                        <em *ngIf="validateControl('password') && hasError('password', 'required')">Password is
+                            required</em>
+                    </div>
+                </div>
+                <br>
+                <div class="mb-3 row">
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary" style="background-color:#3EA977; border: #3EA977;"
+                            [disabled]="!loginForm.valid">Login</button>
+                    </div>
+                </div>
+                <!-- <div class="mb-3 row">
             <a>Forgotten Password & Username</a>
-          </div>
-      </form>
-  </div>
-        <img src="">
-</div>
+          </div> -->
+            </form>
+        </div>
+    </div>

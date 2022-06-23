@@ -1,24 +1,22 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { OcrfileService } from 'src/app/shared/services/ocrfile.service';
+import { FileService } from 'src/app/shared/services/file.service';
 import { FileUpload } from 'src/app/_interfaces/fileupload.model';
 import { UserToCreate } from 'src/app/_interfaces/userToCreate.model';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-file',
+  templateUrl: './file.component.html',
+  styleUrls: ['./file.component.css']
 })
-export class AddComponent implements OnInit {
-
-  constructor(private http: HttpClient, private ocrfileService: OcrfileService){}
+export class FileComponent implements OnInit {
 
   isCreate: boolean;
   name: string;
   address: string;
   user: UserToCreate;
-  users: FileUpload[] = [];
+  fileUploads: FileUpload[] = [];
   response: {dbPath: ''};
   photos: string[] = [];
   hero: any;
@@ -29,17 +27,16 @@ export class AddComponent implements OnInit {
   userdata : FileUpload;
  
 
+  constructor(private http: HttpClient, private fileService: FileService){}
 
   ngOnInit(){
-    this.isCreate = true;
-    this.getPhotos();
-   
-      
+    this.isCreate =true;
+    this.getUsers();   
   }
   
 
-  private getPhotos = () => {
-    this.ocrfileService.getPhotos()
+  getPhotos = () => {
+    this.fileService.getPhotos()
     .subscribe(data => this.photos = data['photos'])
   }
 
@@ -50,22 +47,20 @@ export class AddComponent implements OnInit {
       imgPath: this.response.dbPath
     }
 
-    this.http.post('https://localhost:5001/api/fileOcrUpload', this.user)
+    this.http.post('https://localhost:5001/api/FileUpload', this.user)
     .subscribe({
       next: _ => {
         this.getUsers();
-        this.isCreate = false;
+        this.isCreate = true;
       },
       error: (err: HttpErrorResponse) => console.log(err)
     });
   }
  
-
-
   private getUsers = () => {
-    this.http.get('https://localhost:5001/api/fileOcrUpload')
+    this.http.get('https://localhost:5001/api/FileUpload')
     .subscribe({
-      next: (res) => this.users = res as FileUpload[],
+      next: (res) => this.fileUploads = res as FileUpload[],
       error: (err: HttpErrorResponse) => console.log(err)
     });
   }
@@ -82,25 +77,11 @@ export class AddComponent implements OnInit {
   }
   search = () => {
     console.log('test1');
-    this.ocrfileService.Index(this.name).subscribe((event : FileUpload) => {
+    this.fileService.Index(this.name).subscribe((event : FileUpload) => {
      this.userdata = event;
      this.element=true;
      
- });
-  }
-  @Output() 
-  searchTextChanged:EventEmitter<string> =new EventEmitter<string>();
-
-  onSearchTextChanged()
-  {
-    this.searchTextChanged.emit(this.name)
-  }
-  searchtext:string ='';
-  OnSearchTextEntered(searchValue:string)
-  {
-this.searchtext=searchValue;
-console.log(this.searchtext);
-
+  });
   }
   public createImgPath = (serverPath: string) => { 
     return `https://localhost:5001/${serverPath}`; 

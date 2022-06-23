@@ -13,14 +13,15 @@
     margin: 0 auto !important;
   }
   
-  /* .users{
+  .users{
     width: 900px;
+    border: 2px solid rgb(206, 195, 195);;
     margin: 10px auto;
     padding: 10px;
     box-shadow: 1px 1px 1px gray;
     background-color: black;
     color: aliceblue;
-  } */
+  }
   
   .photos {
     margin-top: 20px;

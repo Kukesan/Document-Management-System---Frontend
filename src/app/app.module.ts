@@ -16,7 +16,6 @@ import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import { PrivacyComponent } from './privacy/privacy.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { AddComponent } from './dashboard/add/add.component';
 import { DocumentsComponent } from './dashboard/documents/documents.component';
 import { FoldersComponent } from './dashboard/folders/folders.component';
 import { NotificationComponent } from './dashboard/notification/notification.component';
@@ -40,9 +39,14 @@ import { ShowUserComponent } from './privacy/manage-user/show-user/show-user.com
 import { EditUserComponent } from './privacy/manage-user/edit-user/edit-user.component';
 import { InfoComponent } from './info/info.component';
 import { AuthenticationModule } from './authentication/authentication.module';
-import { DownloadOCRComponent } from './dashboard/add/download-ocr/download-ocr.component';
-import { DeleteOCRComponent } from './dashboard/add/delete-ocr/delete-ocr.component';
-import { UploadOCRComponent } from './dashboard/add/upload-ocr/upload-ocr.component';
+
+import { FileuploadComponent } from './dashboard/fileupload/fileupload.component';
+import { FileComponent } from './dashboard/fileupload/file/file.component';
+import { OcrComponent } from './dashboard/fileupload/ocr/ocr.component';
+import { BarcodeComponent } from './dashboard/fileupload/barcode/barcode.component';
+import { DeleteOCRComponent } from './dashboard/fileupload/ocr/delete-ocr/delete-ocr.component';
+import { DownloadOCRComponent } from './dashboard/fileupload/ocr/download-ocr/download-ocr.component';
+import { UploadOCRComponent } from './dashboard/fileupload/ocr/upload-ocr/upload-ocr.component';
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -57,7 +61,6 @@ export function tokenGetter() {
     PrivacyComponent,
     ForbiddenComponent,
     DashboardComponent,
-    AddComponent,
     DocumentsComponent,
     FoldersComponent,
     NotificationComponent,
@@ -79,9 +82,13 @@ export function tokenGetter() {
     ShowUserComponent,
     EditUserComponent,
     InfoComponent,
+    FileuploadComponent,
+    FileComponent,
+    OcrComponent,
+    BarcodeComponent,
     DownloadOCRComponent,
-    DeleteOCRComponent,
-    UploadOCRComponent
+    UploadOCRComponent,
+    DeleteOCRComponent
   ],
   imports: [
     BrowserModule,
@@ -94,7 +101,6 @@ export function tokenGetter() {
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
       {path:'dashboard',component:DashboardComponent},
-      {path:'add',component:AddComponent},
       {path:'documents',component:DocumentsComponent},
       {path:'folders',component:FoldersComponent},
       {path:'home',component:HomeComponent},
@@ -117,9 +123,13 @@ export function tokenGetter() {
       {path:'show-user',component:ShowUserComponent},
       {path:'edit-user',component:EditUserComponent},
       {path:'info',component:InfoComponent},
-      {path:'download-ocr',component:DownloadOCRComponent},
+      {path:'upload-ocr',component:UploadOCRComponent},
+      {path:'fileupload',component:FileuploadComponent},
+      {path:'ocr',component:OcrComponent},
+      {path:'file',component:FileComponent},
+      {path:'barcode',component:BarcodeComponent},
       {path:'delete-ocr',component:DeleteOCRComponent},
-      {path:'upload-ocr',component:UploadComponent},
+      {path:'download-ocr',component:DownloadComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},

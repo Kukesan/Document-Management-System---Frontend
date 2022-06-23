@@ -1,1 +1,40 @@
-<p>folders works!</p>
+<div class="trashtable">
+  <form #Form="ngForm" (ngSubmit)="addFolder()">
+    <!-- <div class="form-group">
+        <p><label for="email" style="color: white;">UserId</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter UserId" name="UserId" [(ngModel)]="notification.id">
+      </div> -->
+    <div class="form-group">
+      <p><label for="pwd" style="color: white;">Description</label></p>
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="name"
+        [(ngModel)]="folder.name">
+    </div>
+    <button type="submit" class="button button5">Submit</button><br>
+    <div class="row" *ngIf="submitMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+          <strong>Notification sent Success!</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="updateMsg">
+      <div class="col-xs-12">
+        <p class="alert alert-success">
+          <strong>Notification Updated Success!</strong> Please Refresh the page
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <table>
+    <tr>
+      <th>Notifications</th>
+    </tr>
+    <tr (click)="pop(folder)" *ngFor="let folder of folders">
+      <td>{{ folder.name }}</td>
+      <button class="button button4" (click)="updateFolder(folder)">Edit</button>
+      <button class="button button3" (click)="deleteFolder(folder.issueId)">Delete</button>
+    </tr>
+  </table>
+</div>

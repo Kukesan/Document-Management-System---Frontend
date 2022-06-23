@@ -45,6 +45,7 @@ export class ShowUserComponent implements OnInit {
     this.modalTitle = "Edit User";
     this.activateEditUserComponent = true;
   }
+  
 
   delete(item:any) {
     if(confirm(`Are you sure you want to delete User ${item.id}`)) {

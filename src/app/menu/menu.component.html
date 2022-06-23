@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #3EA977;padding: 10px; font-size: 20px;">
-  <div class="container-fluid" >
-    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active"
-      [routerLinkActiveOptions]="{exact: true}" style="font-size: 20px;">Home</a>
+  <div class="container-fluid">
+    <a class="navbar-brand" [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+      style="font-size: 20px;" *ngIf='isUserAuthenticated'>Home</a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
       [attr.aria-expanded]="!isCollapsed" aria-controls="collapseNav">
       <span class="navbar-toggler-icon"></span>
@@ -13,33 +13,37 @@
             [routerLinkActiveOptions]="{exact: true}">Companies </a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/privacy']" routerLinkActive="active" 
-            [routerLinkActiveOptions]="{exact: true}" > Admin Panel </a>
+          <a class="nav-link" [routerLink]="['/privacy']" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"> Admin Panel </a>
         </li>
       </ul>
       <form class="d-flex">
         <ul *ngIf="!isUserAuthenticated" class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-            <a class="nav-link"[routerLink]="['/authentication/login']" routerLinkActive="active" 
+            <a class="nav-link" [routerLink]="['/authentication/login']" routerLinkActive="active"
               [routerLinkActiveOptions]="{exact: true}" style="font-size: 20px;">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"[routerLink]="['/authentication/register']" routerLinkActive="active" 
+            <a class="nav-link" [routerLink]="['/authentication/register']" routerLinkActive="active"
               [routerLinkActiveOptions]="{exact: true}" style="font-size: 20px;">Register</a>
           </li>
         </ul>
         <ul *ngIf='isUserAuthenticated' class="navbar-nav mr-auto mt-2 mt-lg-0">
           <li class="nav-item">
-          <a routerLink="/search"><img class="topnavicon" src="https://cdn2.iconfinder.com/data/icons/lightly-icons/30/search-240.png"></a>
+            <a routerLink="/search"><img class="topnavicon"
+                src="https://cdn2.iconfinder.com/data/icons/lightly-icons/30/search-240.png"></a>
           </li>
           <li class="nav-item">
-          <a routerLink="/notification"><img class="topnavicon" src="https://cdn1.iconfinder.com/data/icons/material-design-icons-light/24/bell-256.png"></a>
+            <a routerLink="/notification"><img class="topnavicon"
+                src="https://cdn1.iconfinder.com/data/icons/material-design-icons-light/24/bell-256.png"></a>
           </li>
           <li class="nav-item">
-          <a routerLink="/people"><img class="topnavicon" src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-4-1/1024/users4-256.png"></a>
+            <a routerLink="/people"><img class="topnavicon"
+                src="https://cdn2.iconfinder.com/data/icons/e-commerce-line-4-1/1024/users4-256.png"></a>
           </li>
           <li class="nav-item">
-          <a routerLink="/info"><img class="topnavicon" src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Profile-256.png"></a>
+            <a routerLink="/info"><img class="topnavicon"
+                src="https://cdn0.iconfinder.com/data/icons/mobile-basic-vol-1/32/Profile-256.png"></a>
           </li>
           <li class="nav-item">
             <button class="btn btn-link" style="color: #ffffff80;font-size: 20px;" (click)="logout()">Logout</button>
