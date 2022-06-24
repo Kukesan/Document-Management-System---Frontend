@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FolderService } from 'src/app/shared/services/folder.service';
 import { Folder } from 'src/app/_interfaces/folder.model';
 
@@ -27,18 +28,17 @@ export class FoldersComponent implements OnInit {
   submitMsg: boolean = false;
   updateMsg:boolean=false;
   addFolder(){
-    console.log("tttt")
     if(this.folder.folderId===0){
       this.folderService.addFolder(this.folder)
       .subscribe(
         (response: any)=>{
           this.getAllFolders();
-          this.folder.name='';
+          this.folder.name=''; 
           this.submitMsg= true;
         }
       )
     }else{
-      this.updateNotification(this.folder);
+      this.updateFolders(this.folder);
       this.updateMsg=true;
     }
   }
@@ -51,8 +51,8 @@ export class FoldersComponent implements OnInit {
     )
   }
 
-  deleteFolder(id:string){
-    this.folderService.deleteFolder(id)
+  deleteFolder(folderId:number){
+    this.folderService.deleteFolder(folderId)
     .subscribe(
       response=>{
         this.getAllFolders();
@@ -65,7 +65,7 @@ export class FoldersComponent implements OnInit {
   }
 
   
-  updateNotification(folder:Folder){
+  updateFolders(folder:Folder){
     this.folderService.updateFolder(folder)
     .subscribe(
       response =>{
@@ -73,5 +73,13 @@ export class FoldersComponent implements OnInit {
       }
     )
   }
-
+  // addFiles(folderId:number)
+  // {
+  //   this.folderService.addFiles(folderId)
+  //   .subscribe(
+  //     response=>{
+      
+  //     }
+  //   )
+  // }
 }

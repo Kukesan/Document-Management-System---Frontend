@@ -26,9 +26,9 @@
         <td style="color: white;">{{item.telephoneNo}}</td>
         <td style="color: white;">{{item.userEmail}}</td>
         <td>
-          <!-- <button class="btn btn-outline-primary me-2 mb-1" (onClick)="edit()" data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"> -->
-            <button (click)="modalEdit(item)">edit</button>
+          <button class="btn btn-outline-primary me-2 mb-1" (click)="modalEdit(item)" data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop">
+            <!-- <button (click)="modalEdit(item)" data-toggle="modal" data-target="#exampleModal">edit</button> -->
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
               class="bi bi-pencil-square" viewBox="0 0 16 16">
               <path
@@ -36,8 +36,8 @@
               <path fill-rule="evenodd"
                 d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
             </svg>
-          <!-- </button> -->
-          <button class="btn btn-outline-danger me-2 mb-1" (click)="delete(item)">
+          </button>
+          <button class="btn btn-outline-danger me-2 mb-1" (click)="deleteUser(item)">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash"
               viewBox="0 0 16 16">
               <path
@@ -66,8 +66,7 @@
 
 
   <!-- Add or edit user Modal -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -76,7 +75,6 @@
             id="add-edit-modal-close"></button>
         </div>
         <div class="modal-body">
-          <app-add-user [user]="user" *ngIf="activateAddUserComponent"></app-add-user>
           <app-edit-user [user]="user" *ngIf="activateEditUserComponent"></app-edit-user>
         </div>
       </div>

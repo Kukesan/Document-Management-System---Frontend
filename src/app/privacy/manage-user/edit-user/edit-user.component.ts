@@ -24,7 +24,9 @@ export class EditUserComponent implements OnInit {
   });
   submitted = false;
 
-  constructor(private service: UserApiService, private formBuilder: FormBuilder) { }
+  constructor(private service: UserApiService, private formBuilder: FormBuilder) {
+    console.log("service test",service);
+   }
 
   @Input() user: any;
   id: number = 0;
@@ -52,17 +54,20 @@ export class EditUserComponent implements OnInit {
       lastName: ['', [Validators.required]],
       jobPosition: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      userRole: ['', [Validators.required]],
+
       address:['',[Validators.required]],
       city:['',[Validators.required]],
       telephoneNo:['',[Validators.required]]
     }
     );
 
+    console.log("****",this.user);
+    this.id = this.user.id;
     this.empId = this.user.empId;
     this.firstName = this.user.firstName;
     this.lastName = this.user.lastName;
     this.address=this.user.address;
+    this.city = this.user.city;
     this.jobPosition = this.user.jobPosition;
     this.telephoneNo = this.user.telephoneNo;
     this.userEmail = this.user.userEmail;
@@ -75,7 +80,7 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser() {
-    console.log("test3");
+    console.log("test303",user);
     var user = {
       id: this.id,
       empId: this.empId,
@@ -85,7 +90,7 @@ export class EditUserComponent implements OnInit {
       city:this.city,
       jobPosition: this.jobPosition,
       telephoneNo:this.telephoneNo,
-      userEmail: this.userEmail
+     userEmail: this.userEmail
     }
 
     this.submitted = true;

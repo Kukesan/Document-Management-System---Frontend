@@ -47,6 +47,13 @@ import { BarcodeComponent } from './dashboard/fileupload/barcode/barcode.compone
 import { DeleteOCRComponent } from './dashboard/fileupload/ocr/delete-ocr/delete-ocr.component';
 import { DownloadOCRComponent } from './dashboard/fileupload/ocr/download-ocr/download-ocr.component';
 import { UploadOCRComponent } from './dashboard/fileupload/ocr/upload-ocr/upload-ocr.component';
+
+import{MatInputModule} from '@angular/material/input';
+import{MatFormFieldModule} from '@angular/material/form-field';
+import{MatButtonModule} from '@angular/material/button';
+import{MatRippleModule} from '@angular/material/core';
+
+
  
 export function tokenGetter() {
   return localStorage.getItem("token");
@@ -97,6 +104,10 @@ export function tokenGetter() {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     AuthenticationModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatRippleModule,
     CollapseModule.forRoot(),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },

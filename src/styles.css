@@ -81,3 +81,5 @@ button {
   -webkit-filter: grayscale(1) invert(1);
   filter: grayscale(1) invert(var(--top-nav));
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

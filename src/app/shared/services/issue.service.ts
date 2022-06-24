@@ -12,7 +12,7 @@ export class IssueService {
 
   baseUrl = "https://localhost:5001/api/Issues"
 
-  getAllIssues():Observable<Issue[]>{
+  getAllIssues():Observable<Issue[]>{ 
     return this.http.get<Issue[]>(this.baseUrl);
   }
   addIssue(issue:Issue):Observable<Issue>{

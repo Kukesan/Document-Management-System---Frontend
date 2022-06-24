@@ -18,9 +18,10 @@ export class UserApiService {
   addUser(data:any) {
     return this.http.post(this.userAPIUrl , data);
   }
-
+ 
   updateUser(id:number|string, data:any) {
-    console.log("test1");
+    console.log("test123",data);
+    console.log("test1",id);
     return this.http.put(this.userAPIUrl + `/${id}`, data);
   }
 

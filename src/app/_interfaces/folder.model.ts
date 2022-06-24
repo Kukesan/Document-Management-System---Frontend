@@ -1,5 +1,5 @@
 export interface Folder{
-    folderId:any; 
+    folderId:number; 
     name:string;
     comment:string;
     createddate:string;

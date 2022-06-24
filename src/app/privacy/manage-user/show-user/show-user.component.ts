@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserApiService } from 'src/app/shared/services/user-api.service';
 
@@ -11,7 +12,7 @@ export class ShowUserComponent implements OnInit {
 
   userList$!:Observable<any[]>;
 
-  constructor(private service: UserApiService) { }
+  constructor(private service: UserApiService,private router:Router) { }
 
   ngOnInit(): void {
     this.userList$ = this.service.getUserList();
@@ -42,12 +43,16 @@ export class ShowUserComponent implements OnInit {
   modalEdit(item:any) {
     console.log("test2");
     this.user = item;
+    console.log(item);
     this.modalTitle = "Edit User";
     this.activateEditUserComponent = true;
+    console.log("test3");
+    
+    //this.router.navigate(['/edit-user']);
   }
   
 
-  delete(item:any) {
+  deleteUser(item:any) {
     if(confirm(`Are you sure you want to delete User ${item.id}`)) {
       this.service.deleteUser(item.id).subscribe(res => {
         var closeModalBtn = document.getElementById('add-edit-modal-close');
@@ -69,7 +74,7 @@ export class ShowUserComponent implements OnInit {
     }
   }
 
-  modalClose() {
+  modalClose() { 
     this.activateAddUserComponent = false;
     this.activateEditUserComponent = false;
     this.userList$ = this.service.getUserList();
