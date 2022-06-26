@@ -13,28 +13,28 @@ export class EditUserComponent implements OnInit {
   userList$!: Observable<any[]>;
 
   form: FormGroup = new FormGroup({
-    empId: new FormControl(''),
+    //empId: new FormControl(''),
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     jobPosition: new FormControl(''),
     city: new FormControl(''),
     telephoneNo: new FormControl(''),
-    userEmail:new FormControl(''),
-    address:new FormControl('')
+    //userEmail: new FormControl(''),
+    address: new FormControl('')
   });
   submitted = false;
 
   constructor(private service: UserApiService, private formBuilder: FormBuilder) {
-    console.log("service test",service);
-   }
+    console.log("service test", service);
+  }
 
   @Input() user: any;
   id: number = 0;
   empId: string = "";
   firstName: string = "";
   lastName: string = "";
-  address:string="";
-  city:string="";
+  address: string = "";
+  city: string = "";
   jobPosition: string = "";
   telephoneNo: string = "";
   userEmail: string = "";
@@ -42,31 +42,37 @@ export class EditUserComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.formBuilder.group({
-      empId: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(5),
-          Validators.maxLength(10)
-        ]
-      ],
+      // empId: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     //Validators.minLength(5),
+      //     //Validators.maxLength(10)
+      //   ]
+      // ],
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       jobPosition: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      //email: ['', [Validators.required, Validators.email]],
 
-      address:['',[Validators.required]],
-      city:['',[Validators.required]],
-      telephoneNo:['',[Validators.required]]
+      address: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      telephoneNo: ['',
+        [
+          Validators.required,
+          Validators.minLength(10),
+          Validators.maxLength(10)
+        ]
+      ]
     }
     );
 
-    console.log("****",this.user);
+    console.log("****", this.user);
     this.id = this.user.id;
     this.empId = this.user.empId;
     this.firstName = this.user.firstName;
     this.lastName = this.user.lastName;
-    this.address=this.user.address;
+    this.address = this.user.address;
     this.city = this.user.city;
     this.jobPosition = this.user.jobPosition;
     this.telephoneNo = this.user.telephoneNo;
@@ -80,17 +86,17 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser() {
-    console.log("test303",user);
+    console.log("test303", user);
     var user = {
       id: this.id,
       empId: this.empId,
       firstName: this.firstName,
       lastName: this.lastName,
-      address:this.address,
-      city:this.city,
+      address: this.address,
+      city: this.city,
       jobPosition: this.jobPosition,
-      telephoneNo:this.telephoneNo,
-     userEmail: this.userEmail
+      telephoneNo: this.telephoneNo,
+      userEmail: this.userEmail
     }
 
     this.submitted = true;

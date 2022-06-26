@@ -1,6 +1,7 @@
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FileService } from 'src/app/shared/services/file.service';
+import { FileUpload } from 'src/app/_interfaces/fileupload.model';
 
 @Component({
   selector: 'app-download',
@@ -15,6 +16,8 @@ export class DownloadComponent implements OnInit {
   Id:string; 
   
   constructor(private fileService: FileService) {}
+
+    fileuploads: FileUpload[]=[];
   
     ngOnInit(): void {
  //     this.Id = "E4DCA92D-65B0-41C5-9D20-F07D9256B199";
@@ -31,16 +34,18 @@ export class DownloadComponent implements OnInit {
         }
       });
     }
-    delete = () => {
-      this.fileService.delete(this.fileUrl).subscribe((event) => {
-        if (event.type === HttpEventType.UploadProgress){
-          this.progress = Math.round((100 * event.loaded) / event.total);
-        }else if (event.type === HttpEventType.Response) {
-           this.message = 'delete success.';
+
+    
+    // delete = () => {
+    //   this.fileService.delete(this.fileUrl).subscribe((event) => {
+    //     if (event.type === HttpEventType.UploadProgress){
+    //       this.progress = Math.round((100 * event.loaded) / event.total);
+    //     }else if (event.type === HttpEventType.Response) {
+    //        this.message = 'delete success.';
           
-        }
-      });
-    }
+    //     }
+    //   });
+    // }
       
 
   

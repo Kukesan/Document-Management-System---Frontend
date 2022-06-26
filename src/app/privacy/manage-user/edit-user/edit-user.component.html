@@ -1,6 +1,6 @@
 <div class="edit-user-form">
-    <form [formGroup]="form" (ngSubmit)="updateUser()">
-        <div class="form-group">
+    <form [formGroup]="form" (ngSubmit)="updateUser()" style="color: black;">
+        <!-- <div class="form-group">
             <label for="empId" class="form-label">Employee ID</label>
             <input type="text" formControlName="empId" [(ngModel)]="empId" class="form-control" name="empId"
                 [ngClass]="{ 'is-invalid': submitted && f['empId'].errors }">
@@ -10,7 +10,7 @@
                     Invalid User ID
                 </div>
             </div>
-        </div> 
+        </div>  -->
 
         <div class="form-group">
             <label for="firstName" class="form-label">First Name</label>
@@ -58,11 +58,14 @@
         </div>
 
         <div class="form-group">
-            <label for="firstName" class="form-label">telephone Number</label>
+            <label for="firstName" class="form-label">Telephone Number</label>
             <input type="text" formControlName="telephoneNo" [(ngModel)]="telephoneNo" class="form-control" name="telephoneNo"
                 [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }">
             <div *ngIf="submitted && f['telephoneNo'].errors" class="invalid-feedback">
-                <div *ngIf="f['telephoneNo'].errors['required']">First Name is required</div>
+                <div *ngIf="f['telephoneNo'].errors['required']">Telephone No is required</div>
+                <div *ngIf="f['telephoneNo'].errors['minlength'] && f['telephoneNo'].errors['maxlength']">
+                    Invalid telephoneNo
+                </div>
             </div>
         </div>
 

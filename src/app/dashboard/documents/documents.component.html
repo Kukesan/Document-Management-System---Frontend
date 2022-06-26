@@ -76,6 +76,9 @@
                     <td style="color: white;">
                         <app-download [fileUrl]="fileUpload.imgPath"></app-download>
                     </td>
+                    <td style="color: white;">
+                    <button type="button" class="btn btn-success" (click)="change(fileUpload)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>

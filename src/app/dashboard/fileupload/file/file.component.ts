@@ -15,6 +15,9 @@ export class FileComponent implements OnInit {
   isCreate: boolean;
   name: string;
   address: string;
+  status:boolean=true;
+  folderId:number;
+
   user: UserToCreate;
   fileUploads: FileUpload[] = [];
   response: {dbPath: ''};
@@ -44,7 +47,9 @@ export class FileComponent implements OnInit {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: this.response.dbPath
+      imgPath: this.response.dbPath,
+      status:this.status,
+      folderId:this.folderId
     }
 
     this.http.post('https://localhost:5001/api/FileUpload', this.user)

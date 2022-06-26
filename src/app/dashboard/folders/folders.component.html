@@ -1,15 +1,20 @@
 <div class="trashtable">
   <form #Form="ngForm" (ngSubmit)="addFolder()">
     <div class="form-group">
-      <p><label for="pwd" style="color: white;">Description</label></p>
-      <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="name"
+      <p><label for="name" style="color: white;">Name</label></p>
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name"
         [(ngModel)]="folder.name">
+    </div>
+    <div class="form-group">
+      <p><label for="comment" style="color: white;">Comment</label></p>
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment"
+        [(ngModel)]="folder.comment">
     </div>
     <button type="submit" class="button button5">Submit</button><br>
     <div class="row" *ngIf="submitMsg">
       <div class="col-xs-12">
         <p class="alert alert-success">
-          <strong>Notification sent Success!</strong>
+          <strong>Folder Created</strong>
         </p>
       </div>
     </div>
@@ -17,23 +22,74 @@
     <div class="row" *ngIf="updateMsg">
       <div class="col-xs-12">
         <p class="alert alert-success">
-          <strong>Notification Updated Success!</strong> Please Refresh the page
+          <strong>Folder Name Updated Success!</strong> Please Refresh the page
         </p>
       </div>
     </div>
   </form>
 
   <table>
+    <h1 style="color:white;">Folders Details</h1>
     <tr>
-      <th>Notifications</th>
+      <th>Name</th>
+      <th>Comment</th>
     </tr>
     <tr (click)="pop(folder)" *ngFor="let folder of folders">
       <td>{{ folder.name }}</td>
+      <td>{{folder.comment}}</td>
       <button class="button button4" (click)="updateFolder(folder)">Edit</button>
       <button class="button button3" (click)="deleteFolder(folder.folderId)">Delete</button>
       <button class="" (click)="addfiles(folder.folderId)">Add Files</button>
+      &nbsp;
+      <button (click)="viewfile(folder.folderId)">View Files</button>
     </tr>
   </table>
-</div>  
+  <!-- <app-documents></app-documents> -->
+  <section class="users">
+    <h1 style="color:white;">Files Details</h1>
+    <table class="table table-striped">
+        <thead>
+            <tr style="color:white;font-size: 20px;">
+                <th scope="col">File</th>
+                <th scope="col">Name</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Action</th>
+
+            </tr>
+        </thead>
+        <tbody *ngIf='!isView'>
+            <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads" >
+                <!-- <td style="color: white;"><img [src]="createImgPath(user.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>  -->
+                <td style="color: white;"> <img
+                        src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
+                        style="width: 40px; height:40px"></td>
+                <td style="color: white;">{{fileUpload.name}}</td>
+                <td style="color: white;">{{fileUpload.address}}</td>
+                <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
+                <td style="color: white;">
+                    <!-- <app-download [fileUrl]="fileUpload.imgPath"></app-download> -->
+                    <button (click)="addToFolder(fileUpload)">Add To Folder</button>
+                </td>
+            </tr>
+        </tbody>
+        
+        <tbody *ngIf='isView'>
+        <h3 style="color: white;">After view</h3>
+          <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads">
+              <!-- <td style="color: white;"><img [src]="createImgPath(user.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>  -->
+              <td style="color: white;"> <img
+                      src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
+                      style="width: 40px; height:40px"></td>
+              <td style="color: white;">{{fileUpload.name}}</td>
+              <td style="color: white;">{{fileUpload.address}}</td>
+              <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
+              <td style="color: white;">
+                  <!-- <app-download [fileUrl]="fileUpload.imgPath"></app-download> -->
+                  <button (click)="addToFolder(fileUpload)"> Add To Folder</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+  </section>
 
 

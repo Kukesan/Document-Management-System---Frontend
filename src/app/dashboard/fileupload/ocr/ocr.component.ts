@@ -17,6 +17,8 @@ export class OcrComponent implements OnInit {
   isCreate: boolean;
   name: string;
   address: string;
+  status:boolean=true;
+  folderId:number;
   user: UserToCreate;
   users: FileUpload[] = [];
   response: {dbPath: ''};
@@ -47,7 +49,9 @@ export class OcrComponent implements OnInit {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: this.response.dbPath
+      imgPath: this.response.dbPath,
+      status:this.status,
+      folderId:this.folderId
     }
 
     this.http.post('https://localhost:5001/api/fileOcrUpload', this.user)

@@ -56,7 +56,7 @@ export class IssueComponent implements OnInit {
       response=>{
         this.getAllIssues();
       }
-    )
+    ) 
   }
 
   pop(issue: Issue){

@@ -21,7 +21,7 @@ export class IssueService {
   }
   getAdminIssue():Observable<Issue[]>{
     return this.http.get<Issue[]>(this.baseUrl+'/'+'AdminGetIssuesDetails');
-  }
+  } 
 
   deleteIssue(id:string):Observable<Issue>{
     return this.http.delete<Issue>(this.baseUrl+'/'+id);

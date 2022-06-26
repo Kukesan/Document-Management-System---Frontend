@@ -35,7 +35,7 @@ export class FolderService {
 
   getAllFolders():Observable<Folder[]>{
     return this.http.get<Folder[]>(this.baseUrl);
-  }
+  } 
   addFolder(folder:Folder):Observable<Folder>{
     parseInt(folder.name);
     return this.http.post<Folder>(this.baseUrl,folder);
@@ -51,5 +51,5 @@ export class FolderService {
   // addFiles(folderId:number):Observable<Folder>{
   //   return this.http.post<Folder>(this.baseUrl+folderId);
   // }
-}
+} 
 

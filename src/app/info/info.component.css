@@ -1,4 +1,4 @@
-div.trashtable{
+/* div.trashtable{
     border-radius: 5px;
     border: 1px;
     border-color: #ddd;
@@ -19,7 +19,7 @@ input{
 .button {
   border-radius: 5px;
   background-color: #4CAF50; /* Green */
-  border: none;
+  /* border: none;
   color: white;
   padding: 8px 12px;
   text-align: center;
@@ -70,7 +70,7 @@ tr:hover {background-color: gray;}
 
 .button3:hover {
   /* background-color: white;  */
-  color: black; 
+  /* color: black; 
   border: 2px solid #f44336;
 }
 
@@ -92,4 +92,43 @@ tr:hover {background-color: gray;}
   background-color: #e7e7e7;
   width: 80px;
   height: 40px;
+}  */
+
+#add-success-alert,
+#update-success-alert,
+#delete-success-alert {
+  display: none;
+}
+
+#add-success-alert,
+#update-success-alert,
+#delete-success-alert {
+  animation-name: fadeInAndOut;
+  animation-duration: 4s;
+}
+
+@-webkit-keyframes fadeInAndOut {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+@keyframes fadeInAndOut {
+  0% {opacity: 0;}
+  50% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+div.trashtable{
+  border-radius: 5px;
+  border: 1px;
+  border-color: #ddd;
+  border-style: groove;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: #27293D;
+
+  box-shadow:
+     inset 0 -3em 3em rgba(0,0,0,0.1),
+           0.3em 0.3em 1em rgba(0,0,0,0.3);
 }

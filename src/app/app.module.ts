@@ -22,7 +22,6 @@ import { NotificationComponent } from './dashboard/notification/notification.com
 import { SearchComponent } from './dashboard/search/search.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { StarredComponent } from './dashboard/starred/starred.component';
-import { TrashComponent } from './dashboard/trash/trash.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IssueComponent } from './dashboard/issue/issue.component';
 import { AdminNotificationComponent } from './privacy/admin-notification/admin-notification.component';
@@ -52,6 +51,7 @@ import{MatInputModule} from '@angular/material/input';
 import{MatFormFieldModule} from '@angular/material/form-field';
 import{MatButtonModule} from '@angular/material/button';
 import{MatRippleModule} from '@angular/material/core';
+import { RecyclebinComponent } from './dashboard/recyclebin/recyclebin.component';
 
 
  
@@ -74,7 +74,6 @@ export function tokenGetter() {
     SearchComponent,
     SettingsComponent,
     StarredComponent,
-    TrashComponent,
     IssueComponent,
     AdminNotificationComponent,
     AdminSearchComponent,
@@ -95,7 +94,8 @@ export function tokenGetter() {
     BarcodeComponent,
     DownloadOCRComponent,
     UploadOCRComponent,
-    DeleteOCRComponent
+    DeleteOCRComponent,
+    RecyclebinComponent
   ],
   imports: [
     BrowserModule,
@@ -119,7 +119,6 @@ export function tokenGetter() {
       {path:'search',component:SearchComponent},
       {path:'settings',component:SettingsComponent},
       {path:'starred',component:StarredComponent},
-      {path:'trash',component:TrashComponent},
       {path:'issue',component:IssueComponent},
       {path:'admin-notification',component:AdminNotificationComponent},
       {path:'admin-search',component:AdminSearchComponent},
@@ -141,6 +140,7 @@ export function tokenGetter() {
       {path:'barcode',component:BarcodeComponent},
       {path:'delete-ocr',component:DeleteOCRComponent},
       {path:'download-ocr',component:DownloadComponent},
+      {path:'recyclebin',component:RecyclebinComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},

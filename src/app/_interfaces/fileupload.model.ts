@@ -3,4 +3,6 @@ export interface FileUpload{
     name: string,
     address: string,
     imgPath: string,
+    status:boolean,
+    folderId:number
 }

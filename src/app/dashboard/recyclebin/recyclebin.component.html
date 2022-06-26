@@ -1,0 +1,40 @@
+<section class="users">
+    <table class="table table-striped">
+      <thead>
+        <tr style="color:white;">
+          <th scope="col">File</th>
+          <th scope="col">Name</th>
+          <th scope="col">Comments</th>
+          <th scope="col">Action</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="color: aliceblue;"*ngFor="let fileUpload of fileUploads">
+        
+           <td style="color: white;"> <img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png" style="width: 40px; height:40px"></td> 
+          <td style="color: white;">{{fileUpload.name}}</td>
+          <td style="color: white;">{{fileUpload.address}}</td>
+     
+         <td style="color: white;">
+          <div class="row mb-3 mt-3">
+            <div class="col-md-3">
+              <button type="button" class="btn btn-success" (click)="restore(fileUpload)">Restore</button>
+            &nbsp;  &nbsp;  &nbsp; 
+              <button type="button" class="btn btn-success" (click)="delete(fileUpload)">Delete</button>
+            </div>
+            <div class="col-md-4">
+              <span class="download" *ngIf="progress > 0">
+                {{progress}}%
+              </span>
+              <span class="download">
+                {{message}}
+              </span>
+            </div>
+          </div>
+          
+        </td>  
+         </tr>
+      </tbody>
+    </table>
+</section>

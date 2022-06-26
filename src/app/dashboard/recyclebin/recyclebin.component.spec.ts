@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TrashComponent } from './trash.component';
+import { RecyclebinComponent } from './recyclebin.component';
 
-describe('TrashComponent', () => {
-  let component: TrashComponent;
-  let fixture: ComponentFixture<TrashComponent>;
+describe('RecyclebinComponent', () => {
+  let component: RecyclebinComponent;
+  let fixture: ComponentFixture<RecyclebinComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TrashComponent ]
+      declarations: [ RecyclebinComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TrashComponent);
+    fixture = TestBed.createComponent(RecyclebinComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

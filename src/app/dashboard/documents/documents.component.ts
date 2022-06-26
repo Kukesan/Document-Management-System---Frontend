@@ -16,11 +16,14 @@ export class DocumentsComponent implements OnInit {
   name: string;
   address: string;
   user: UserToCreate;
+  status:boolean=true;
+  folderId:number;
+
   fileUploads: FileUpload[] = [];
   response: {dbPath: ''};
   photos: string[] = [];
   hero: any;
-  heroForm: FormGroup;
+  heroForm: FormGroup; 
   fileUrl:string;
   enteredSearchValue:string='';
   element:boolean=false;
@@ -44,7 +47,9 @@ export class DocumentsComponent implements OnInit {
     this.user = {
       name: this.name,
       address: this.address,
-      imgPath: this.response.dbPath
+      imgPath: this.response.dbPath,
+      status:this.status,
+      folderId:this.folderId
     }
 
     this.http.post('https://localhost:5001/api/FileUpload', this.user)
@@ -86,5 +91,11 @@ export class DocumentsComponent implements OnInit {
   public createImgPath = (serverPath: string) => { 
     return `https://localhost:5001/${serverPath}`; 
   }
+
+  change(fileUpload)  {
+    console.log('test1');
+    this.fileService.change(fileUpload.id).subscribe() 
+     
+ }
 
 }
