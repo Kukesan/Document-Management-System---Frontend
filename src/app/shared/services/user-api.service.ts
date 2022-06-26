@@ -11,6 +11,10 @@ export class UserApiService {
 
   constructor(private http:HttpClient) { }
 
+  getAllUserList():Observable<any[]> {
+    return this.http.get<any>(this.userAPIUrl+'/GetUserInfo' );
+  }
+
   getUserList():Observable<any[]> {
     return this.http.get<any>(this.userAPIUrl );
   }

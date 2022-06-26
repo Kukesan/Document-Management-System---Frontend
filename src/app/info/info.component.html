@@ -9,9 +9,9 @@
             <tr>Telephone Number : {{userinformation.telephoneNo}}</tr>
             <tr>User Email : {{userinformation.userEmail}}</tr>
             <button (click)="approveUser(userinformation)">Approve</button> -->
-            <!-- <button class="button button4" (click)="updateNotification(notification)">Edit</button>
+<!-- <button class="button button4" (click)="updateNotification(notification)">Edit</button>
             <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button> -->
-    <!-- </table>
+<!-- </table>
 </div> -->
 <!-- <app-manage-user></app-manage-user> -->
 
@@ -20,7 +20,7 @@
 <!-- <button type="button" class="btn btn-secondary float-end m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Show Inspection Types
 </button> -->
-<div class="trashtable">
+<!-- <div class="trashtable">
     <table class="table table-striped" >
       <thead style="color: white;">
         <th>Employee Id</th>
@@ -45,7 +45,6 @@
           <td>
             <button class="btn btn-outline-primary me-2 mb-1" (click)="modalEdit(item)" data-bs-toggle="modal"
               data-bs-target="#staticBackdrop">
-              <!-- <button (click)="modalEdit(item)" data-toggle="modal" data-target="#exampleModal">edit</button> -->
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-pencil-square" viewBox="0 0 16 16">
                 <path
@@ -79,11 +78,11 @@
   
     <div class="alert alert-success" role="alert" id="delete-success-alert">
       User successfully deleted!
-    </div>
-  
-  
-    <!-- Add or edit user Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    </div> -->
+
+
+<!-- Add or edit user Modal -->
+<!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -97,4 +96,167 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+<div class="trashtable">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container ">
+        <form method="post">
+            <tr *ngFor="let item of userList$|async">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog"
+                                alt="" />
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                            <h2>
+                                <p>
+                                    <td style="color: white;">{{item.firstName}} {{item.lastName}}</td>
+                                </p>
+                            </h2>
+                            <h3>
+                                <td style="color: white;">{{item.jobPosition}}</td>
+                            </h3>
+                            <!-- <p class="proile-rating">RANKINGS : <span>8/10</span></p> -->
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <h2>User Details</h2>
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                        aria-controls="home" aria-selected="true">About</a>
+                                </li> -->
+                                <!-- <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                        aria-controls="profile" aria-selected="false">Timeline</a>
+                                </li> -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit jyProfile" />  -->
+                        <button class="btn btn-outline-success me-2 mb-1 " (click)="modalEdit(item)" 
+                            data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg> Edit User Details
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <!-- <div class="profile-work">
+                            <p>WORK LINK</p>
+                            <a href="">Website Link</a><br />
+                            <a href="">Bootsnipp Profile</a><br />
+                            <a href="">Bootply Profile</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br />
+                            <a href="">Web Developer</a><br />
+                            <a href="">WordPress</a><br />
+                            <a href="">WooCommerce</a><br />
+                            <a href="">PHP, .Net</a><br />
+                        </div> -->
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Emploayee Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.empId}}</td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>First Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.firstName}}</td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Last Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.lastName}}</td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Address</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.address}}</td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>City</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.city}}</td>
+                                    </div>
+                                </div>
+                                <!-- </div>
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Job Position</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.jobPosition}}</td>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Telephone Number</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <td style="color: white;">{{item.telephoneNo}}</td>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <td>
+                </td>
+            </tr>
+        </form>
+    </div>
+</div>
+
+
+
+<!-- Add or edit user Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="color: black;" class="modal-title" id="staticBackdropLabel">{{modalTitle}}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="modalClose()" id="add-edit-modal-close"></button>
+            </div>
+            <div class="modal-body">
+                <app-edit-user [user]="user" *ngIf="activateEditUserComponent"></app-edit-user>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-success" role="alert" id="update-success-alert" *ngIf="isUpdate">
+    User Successfully Updated!
+</div>

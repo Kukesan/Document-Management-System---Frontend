@@ -106,9 +106,10 @@ export class FoldersComponent implements OnInit {
   }
 
   
-  isView:boolean=false;
-  addfiles(){
-    this.currentfolderId=this.folder.folderId;
+  
+  addfiles(folderId:number){
+    this.currentfolderId=folderId;
+    console.log(this.currentfolderId);
   }
 
  
@@ -125,22 +126,22 @@ export class FoldersComponent implements OnInit {
     console.log(fileupload.folderId);
     this.fileService.updateFile(fileupload)
     .subscribe(
-      response =>{
+      response =>{ 
         this.getAllFolders();
       }
     )
   }
-
+  isView:boolean=false;
+  isViewfolderId:number;
   specfiles:FileUpload[]=[];
   viewfile(folderId:number){
+    this.isViewfolderId=folderId;
     this.isView=true;
-    console.log(folderId);
-    this.fileService.getSpecFiles(folderId)
-    .subscribe(
-      response =>{
-        //this.specfiles=response;
-        //this.fileUploads=response;
-      }
-    )
+    this.getUsers();
+    // this.fileService.getSpecFiles(folderId)
+    // .subscribe(
+    //   response =>{
+    //   }
+    // )
   }
 }

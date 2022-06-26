@@ -62,6 +62,7 @@ export class InfoComponent implements OnInit {
   // }
 
   userList$!:Observable<any[]>;
+  isUpdate:boolean=false;
 
   constructor(private service: UserApiService,private router:Router) { }
 
@@ -75,59 +76,21 @@ export class InfoComponent implements OnInit {
   activateEditUserComponent:boolean = false;
   user:any;
 
-  modalAdd() {
-    this.user = {
-      id:0,
-      EmpId:null,
-      firstName:null,
-      lastName:null,
-      address:null,
-      city:null,
-      jobPosition:null,
-      telephoneNo:null,
-      userEmail:null
-    }
-    this.modalTitle = "Add User";
-    this.activateAddUserComponent = true;
-  }
-
   modalEdit(item:any) {
     console.log("test2");
     this.user = item;
     console.log(item);
     this.modalTitle = "Edit User";
     this.activateEditUserComponent = true;
-    console.log("test3");
     
+    console.log("test3");
     //this.router.navigate(['/edit-user']);
-  }
-  
-
-  deleteUser(item:any) {
-    if(confirm(`Are you sure you want to delete User ${item.id}`)) {
-      this.service.deleteUser(item.id).subscribe(res => {
-        var closeModalBtn = document.getElementById('add-edit-modal-close');
-      if(closeModalBtn) {
-        closeModalBtn.click();
-      }
-
-      var showDeleteSuccess = document.getElementById('delete-success-alert');
-      if(showDeleteSuccess) {
-        showDeleteSuccess.style.display = "block";
-      }
-      setTimeout(function() {
-        if(showDeleteSuccess) {
-          showDeleteSuccess.style.display = "none"
-        }
-      }, 4000);
-      this.userList$ = this.service.getUserList();
-      })
-    }
   }
 
   modalClose() { 
     this.activateAddUserComponent = false;
     this.activateEditUserComponent = false;
     this.userList$ = this.service.getUserList();
+    this.isUpdate=true;
   }
 }

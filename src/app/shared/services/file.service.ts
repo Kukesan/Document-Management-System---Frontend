@@ -50,8 +50,8 @@ export class FileService {
   }
 
   public getSpecFiles(id: number) {
-    console.log("test1" + id);
-    return this.http.get(this.url + `/getSpecFiles?folderId=${id}`, {
+    console.log("test1 " + id);
+    return this.http.get(this.url + `/getSpecFiles/${id}`, {
       reportProgress: true,
       // observe: 'events',
       // responseType: User

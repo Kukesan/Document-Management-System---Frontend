@@ -15,7 +15,7 @@ export class ShowUserComponent implements OnInit {
   constructor(private service: UserApiService,private router:Router) { }
 
   ngOnInit(): void {
-    this.userList$ = this.service.getUserList();
+    this.userList$ = this.service.getAllUserList();
   }
 
   // Variables (properties)
@@ -77,7 +77,7 @@ export class ShowUserComponent implements OnInit {
   modalClose() { 
     this.activateAddUserComponent = false;
     this.activateEditUserComponent = false;
-    this.userList$ = this.service.getUserList();
+    this.userList$ = this.service.getAllUserList();
   }
 
 }

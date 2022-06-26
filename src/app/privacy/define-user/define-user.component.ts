@@ -11,7 +11,9 @@ export class DefineUserComponent implements OnInit {
 
   constructor(private userinformationService :UserinfomationsService) { }
 
+  
   form: any = {};
+  approvebutton :string='Hello';
   userinformations : UserInformations[] = [];
   userinformation : UserInformations={
     id:0,
@@ -25,10 +27,13 @@ export class DefineUserComponent implements OnInit {
     userAccepted: false,
     userEmail:''
   }
- 
+  
   ngOnInit(): void {
     this.getAllUsers();
+    //this.checkApprove(this.userinformation);
   }
+  
+  
   
   private getAllUsers(){
     this.userinformationService.getAllUsers()
@@ -47,8 +52,22 @@ export class DefineUserComponent implements OnInit {
   //   )
   // }
 
+  // checkApprove(userinformation : UserInformations){
+  //   if(userinformation.userAccepted==false){
+  //     this.approvebutton='Cancel'
+  //   }else{
+  //     this.approvebutton='Accept'
+  //   }
+  // }
+
   approveUser(userinformation : UserInformations){
-    userinformation.userAccepted=true;
+    if(userinformation.userAccepted==false){
+      userinformation.userAccepted=true;
+      this.approvebutton='Cancel'
+    }else{
+      userinformation.userAccepted=false;
+      this.approvebutton='Accept'
+    }
     this.userinformationService.approveUser(userinformation)
     .subscribe(
       response =>{
@@ -57,5 +76,4 @@ export class DefineUserComponent implements OnInit {
       }
     )
   }
-
 }

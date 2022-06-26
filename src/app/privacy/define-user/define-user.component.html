@@ -10,7 +10,7 @@
             <th>Telephone Number</th>
             <th>User Email</th>
         </tr>
-        <tr (click)="pop(notification)" *ngFor="let userinformation of userinformations">
+        <tr *ngFor="let userinformation of userinformations">
             <td>{{ userinformation.empId }}</td>
             <td>{{ userinformation.firstName }}</td>
             <td>{{ userinformation.lastName }}</td>
@@ -19,7 +19,7 @@
             <td>{{ userinformation.jobPosition }}</td>
             <td>{{userinformation.telephoneNo}}</td>
             <td>{{userinformation.userEmail}}</td>
-            <button (click)="approveUser(userinformation)">Approve</button>
+            <button (click)="approveUser(userinformation)">{{this.approvebutton}}</button>
             <!-- <button class="button button4" (click)="updateNotification(notification)">Edit</button>
             <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button> -->
         </tr>
