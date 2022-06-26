@@ -3,4 +3,5 @@ export interface Issue{
     description : string;
     createdDate : string;
     userEmail: string;
+    isSolved:boolean;
 }

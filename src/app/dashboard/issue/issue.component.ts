@@ -17,7 +17,8 @@ export class IssueComponent implements OnInit {
     issueId : 0,
     description : '',
     createdDate : '',
-    userEmail:''
+    userEmail:'',
+    isSolved:false
   }
 
   ngOnInit(): void {

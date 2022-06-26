@@ -9,36 +9,66 @@ import { IssueService } from 'src/app/shared/services/issue.service';
 })
 export class BugReportComponent implements OnInit {
 
-  constructor(private issueService : IssueService) { }
+  constructor(private issueService: IssueService) { }
 
   //form: any = {};
-  issues : Issue[] = [];
-  // issue : Issue={
-  //   IssueId : 0,
-  //   UserId : 0,
-  //   Description : '',
-  //   CreatedDate : ''
-  // }
+  issues: Issue[] = [];
+  issue : Issue={
+    issueId : 0,
+    description : '',
+    createdDate : '',
+    userEmail:'',
+    isSolved:false
+  }
 
   ngOnInit(): void {
     // this.getAllIssues();
     this.getAdminIssue();
-  }
-  
-  getAllIssues(){
-    this.issueService.getAllIssues()
-    .subscribe(
-      response =>{
-        this.issues=response;
-        console.log(this.issues)
-      }
-    )
+   // this.checkSolve(this.issue);
   }
 
-  private getAdminIssue = () =>{
+  getAllIssues() {
+    this.issueService.getAllIssues()
+      .subscribe(
+        response => {
+          this.issues = response;
+          console.log(this.issues)
+        }
+      )
+  }
+
+  private getAdminIssue = () => {
     this.issueService.getAdminIssue()
-    .subscribe(response => {
-      this.issues = response;
-    })
+      .subscribe(response => {
+        this.issues = response;
+      })
+  }
+
+  solveButton: string ;
+  // checkSolve(issue: Issue) {
+  //   if (issue.isSolved == true) {
+  //     this.solveButton = 'Solved';
+  //   } else {
+  //     this.solveButton = 'UnSolved';
+  //   }
+  // }
+
+  currentId: number;
+  solve(issue: Issue) {
+    this.currentId = issue.issueId;
+    if (issue.isSolved == false) {
+      issue.isSolved = true;
+      this.solveButton = ' Solved';
+    } else {
+      issue.isSolved = false;
+      this.solveButton = ' UnSolved';
+    }
+    console.log(issue.isSolved);
+    this.issueService.updateIssue(issue)
+      .subscribe(
+        response => {
+
+        }
+      )
   }
 }

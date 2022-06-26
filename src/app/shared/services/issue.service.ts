@@ -30,4 +30,7 @@ export class IssueService {
   updateIssue(issue:Issue):Observable<Issue>{
     return this.http.put<Issue>(this.baseUrl+'/'+issue.issueId,issue);
   }
+  // solve(issue:Issue):Observable<Issue>{
+  //   return this.http.put<Issue>(this.baseUrl+'/'+issue.issueId,issue);
+  // }
 }

@@ -1,14 +1,37 @@
 <div class="trashtable">
+  <h2> Unsolved Issues</h2>
   <table>
-      <tr>
-        <th>Email</th>
-        <th>Notifications</th>
-        <th>Created Date</th>
-      </tr><br>
-      <tr *ngFor="let issue of issues">
-          <td>{{issue.userEmail}}</td> 
-          <td>{{issue.description}}</td>
-          <td>{{issue.createdDate}}</td>
-      </tr>
+    <tr>
+      <th>Email</th>
+      <th>Notifications</th>
+      <th>Created Date</th>
+    </tr><br>
+    <tr *ngFor="let issue of issues">
+      <ng-container *ngIf="issue.isSolved==false">
+        <td>{{issue.userEmail}}</td>
+        <td>{{issue.description}}</td>
+        <td>{{issue.createdDate}}</td>
+        <td><button (click)="solve(issue)">Issue<ng-container *ngIf="issue.issueId==this.currentId">{{this.solveButton}}
+            </ng-container></button></td>
+      </ng-container>
+    </tr>
+  </table>
+  <br>
+  <h2> Solved Issues</h2>
+  <table>
+    <tr>
+      <th>Email</th>
+      <th>Notifications</th>
+      <th>Created Date</th>
+    </tr><br>
+    <tr *ngFor="let issue of issues">
+      <ng-container *ngIf="issue.isSolved==true">
+        <td>{{issue.userEmail}}</td>
+        <td>{{issue.description}}</td>
+        <td>{{issue.createdDate}}</td>
+        <td><button (click)="solve(issue)">Issue<ng-container *ngIf="issue.issueId==this.currentId">{{this.solveButton}}
+            </ng-container></button></td>
+      </ng-container>
+    </tr>
   </table>
 </div>

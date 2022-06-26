@@ -15,7 +15,7 @@ export class UserinfomationsService {
   addUser(userinformations:UserInformations):Observable<UserInformations>{
     parseInt(userinformations.empId);
     return this.http.post<UserInformations>(this.baseUrl,userinformations);
-  }
+  } 
 
   getUser():Observable<UserInformations[]>{
     return this.http.get<UserInformations[]>(this.baseUrl);

@@ -1,4 +1,5 @@
 <div class="trashtable">
+  <h1>Folders Details</h1>
   <form #Form="ngForm" (ngSubmit)="addFolder()">
     <div class="form-group">
       <p><label for="name" style="color: white;">Name</label></p>
@@ -28,8 +29,8 @@
     </div>
   </form>
 
+ 
   <table>
-    <h1 style="color:white;">Folders Details</h1>
     <tr>
       <th>Name</th>
       <th>Comment</th>
@@ -44,9 +45,9 @@
       <button (click)="viewfile(folder)">View Files</button>
     </tr>
   </table>
-  <!-- <app-documents></app-documents> -->
+
   <section class="users">
-    <h1 style="color:white;">Files Details</h1>
+    <h1 *ngIf='!isView'>Files Details</h1>
     <table class="table table-striped" *ngIf='!isView'>
       <thead>
         <tr style="color:white;font-size: 20px;">
@@ -58,45 +59,38 @@
       </thead>
       <tbody>
         <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads">
-          <!-- <td style="color: white;"><img [src]="createImgPath(user.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>  -->
-          <td style="color: white;"> <img
-              src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
-              style="width: 40px; height:40px"></td>
-          <td style="color: white;">{{fileUpload.name}}</td>
-          <td style="color: white;">{{fileUpload.address}}</td>
-          <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
-          <td style="color: white;">
-            <!-- <app-download [fileUrl]="fileUpload.imgPath"></app-download> -->
-            <button (click)="addToFolder(fileUpload)">Add To Folder</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-
-    <table class="table table-striped" *ngIf='isView'>
-      <h3 style="color: white;">After view</h3>
-      <h3 style="color: white;">{{currentfolderName}}</h3>
-      <thead>
-        <tr style="color:white;font-size: 20px;">
-          <th scope="col">File</th>
-          <th scope="col">Name</th>
-          <th scope="col">Comments</th>
-          <th scope="col">Action</th>
-
-        </tr>
-      </thead>
-      <tbody>
-        <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads">
-          <div *ngIf="isViewfolderId==fileUpload.folderId">
-            <h3>{{folder.name}}</h3>
+          <ng-container *ngIf="fileUpload.folderId==-1">
             <td style="color: white;"> <img
                 src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
                 style="width: 40px; height:40px"></td>
             <td style="color: white;">{{fileUpload.name}}</td>
             <td style="color: white;">{{fileUpload.address}}</td>
-            <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
-          </div>
+            <td style="color: white;">
+              <button (click)="addToFolder(fileUpload)">Add To Folder</button>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h1 *ngIf='isView'>{{currentfolderName}}</h1>
+    <table class="table table-striped" *ngIf='isView'>
+      <thead>
+        <tr style="color:white;font-size: 20px;">
+          <th scope="col">File</th>
+          <th scope="col">Name</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads">
+          <ng-container *ngIf="isViewfolderId==fileUpload.folderId">
+            <td style="color: white;"> <img
+                src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
+                style="width: 40px; height:40px"></td>
+            <td style="color: white;">{{fileUpload.name}}</td>
+            <td style="color: white;">{{fileUpload.address}}</td>
+          </ng-container>
         </tr>
       </tbody>
     </table>

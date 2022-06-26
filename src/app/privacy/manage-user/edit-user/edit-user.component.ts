@@ -38,6 +38,7 @@ export class EditUserComponent implements OnInit {
   jobPosition: string = "";
   telephoneNo: string = "";
   userEmail: string = "";
+  userAccepted:boolean=true;
 
   ngOnInit(): void {
 
@@ -77,6 +78,7 @@ export class EditUserComponent implements OnInit {
     this.jobPosition = this.user.jobPosition;
     this.telephoneNo = this.user.telephoneNo;
     this.userEmail = this.user.userEmail;
+    this.userAccepted=true;
     this.userList$ = this.service.getUserList();
 
   }
@@ -96,7 +98,8 @@ export class EditUserComponent implements OnInit {
       city: this.city,
       jobPosition: this.jobPosition,
       telephoneNo: this.telephoneNo,
-      userEmail: this.userEmail
+      userEmail: this.userEmail,
+      userAccepted:this.userAccepted
     }
 
     this.submitted = true;

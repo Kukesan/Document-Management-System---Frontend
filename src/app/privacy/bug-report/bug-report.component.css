@@ -31,3 +31,9 @@ table {
     -webkit-filter: grayscale(1) invert(1);
     filter: grayscale(1) invert(1);
   }
+
+h2{
+  background-color: beige;
+  color: black;
+  padding: 0 5px;
+}
