@@ -106,9 +106,9 @@ export class FoldersComponent implements OnInit {
   }
 
   
-  
-  addfiles(folderId:number){
-    this.currentfolderId=folderId;
+
+  addfiles(folder:Folder){
+    this.currentfolderId=folder.folderId;
     console.log(this.currentfolderId);
   }
 
@@ -131,12 +131,18 @@ export class FoldersComponent implements OnInit {
       }
     )
   }
+
+  visibleName:string;
   isView:boolean=false;
   isViewfolderId:number;
+  currentfolderName:string;
   specfiles:FileUpload[]=[];
-  viewfile(folderId:number){
-    this.isViewfolderId=folderId;
+  viewfile(folder:Folder){
+    this.isViewfolderId=folder.folderId;
     this.isView=true;
+    this.visibleName=this.currentfolderName;
+    this.currentfolderName=folder.name;
+    console.log(this.currentfolderName);
     this.getUsers();
     // this.fileService.getSpecFiles(folderId)
     // .subscribe(
