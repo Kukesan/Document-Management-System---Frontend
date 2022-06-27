@@ -49,14 +49,14 @@ export class FileService {
     return this.http.put<FileUpload>(this.url + '/' + fileupload.id, fileupload);
   }
 
-  public getSpecFiles(id: number) {
-    console.log("test1 " + id);
-    return this.http.get(this.url + `/getSpecFiles/${id}`, {
-      reportProgress: true,
-      // observe: 'events',
-      // responseType: User
-    })
-  }
+  // public getSpecFiles(id: number) {
+  //   console.log("test1 " + id);
+  //   return this.http.get(this.url + `/getSpecFiles/${id}`, {
+  //     reportProgress: true,
+  //     // observe: 'events',
+  //     // responseType: User
+  //   })
+  // }
 
 
 
@@ -79,7 +79,7 @@ export class FileService {
   //   reportProgress: true,
   //   observe: 'events',
   //   responseType: 'blob'
-
+ 
   // })
   // }
 

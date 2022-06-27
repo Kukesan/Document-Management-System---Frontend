@@ -34,11 +34,11 @@ export class FolderService {
   
 
   getAllFolders():Observable<Folder[]>{
-    return this.http.get<Folder[]>(this.baseUrl);
+    return this.http.get<Folder[]>(this.baseUrl); 
   } 
   addFolder(folder:Folder):Observable<Folder>{
     parseInt(folder.name);
-    return this.http.post<Folder>(this.baseUrl,folder);
+    return this.http.post<Folder>(this.baseUrl,folder); 
   } 
 
   deleteFolder(folderId:number):Observable<Folder>{

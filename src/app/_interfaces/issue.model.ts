@@ -1,7 +1,7 @@
 export interface Issue{
     issueId : any;
     description : string;
-    createdDate : string;
+    createdDate : Date;
     userEmail: string;
     isSolved:boolean;
 }

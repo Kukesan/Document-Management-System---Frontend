@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Issue } from 'src/app/_interfaces/issue.model';
 import { IssueService } from 'src/app/shared/services/issue.service';
 
+
 @Component({
   selector: 'app-bug-report',
   templateUrl: './bug-report.component.html',
@@ -16,7 +17,7 @@ export class BugReportComponent implements OnInit {
   issue : Issue={
     issueId : 0,
     description : '',
-    createdDate : '',
+    createdDate : new Date(),
     userEmail:'',
     isSolved:false
   }

@@ -25,7 +25,8 @@ export class UserdetailsComponent implements OnInit {
     jobPosition: '',
     telephoneNo: '',
     userAccepted: false,
-    userEmail: ''
+    userEmail: '',
+    groupId:0
   }
 
   ngOnInit(): void {

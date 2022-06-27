@@ -1,0 +1,93 @@
+<div class="trashtable">
+    <h1>Folders Details</h1>
+    <form #Form="ngForm" (ngSubmit)="addGroup()">
+      <div class="form-group">
+        <p><label for="name" style="color: white;">Name</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name"
+          [(ngModel)]="group.name">
+      </div>
+      <div class="form-group">
+        <p><label for="comment" style="color: white;">Comment</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment"
+          [(ngModel)]="group.comment">
+      </div>
+      <button type="submit" class="button button5">Submit</button><br>
+      <div class="row" *ngIf="submitMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>Group Created</strong>
+          </p>
+        </div>
+      </div>
+  
+      <div class="row" *ngIf="updateMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>Group Name Updated Success!</strong> Please Refresh the page
+          </p>
+        </div>
+      </div>
+    </form>
+  
+   
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Comment</th>
+      </tr>
+      <tr *ngFor="let group of groups">
+        <td>{{ group.name }}</td>
+        <td>{{group.comment}}</td>
+        <button class="button button4" (click)="updateGroup(group)">Edit</button>
+        <button class="button button3" (click)="deleteGroup(group.groupId)">Delete</button>
+        <button class="" (click)="addUsers(group)">Add Files</button>
+        &nbsp;
+        <button (click)="viewGroup(group)">View Files</button>
+      </tr>
+    </table>
+  
+    <section class="users">
+      <h1 *ngIf='!isView'>Files Details</h1>
+      <table class="table table-striped" *ngIf='!isView'>
+        <thead>
+          <tr style="color:white;font-size: 20px;">
+            <th scope="col">Employee Id</th>
+            <th scope="col">User Email</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="color: aliceblue;" *ngFor="let userInformation of userInformations">
+            <ng-container *ngIf="userInformation.groupId==-1">
+              <td style="color: white;">{{userInformation.empId}}</td>
+              <td style="color: white;">{{userInformation.userEmail}}</td>
+              <td style="color: white;">{{userInformation.firstName}}</td>
+              <td style="color: white;">
+                <button (click)="addToGroup(userInformation)">Add To Folder</button>
+              </td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <h1 *ngIf='isView'>{{currentGroupName}}</h1>
+      <table class="table table-striped" *ngIf='isView'>
+        <thead>
+          <tr style="color:white;font-size: 20px;">
+            <th scope="col">Employee Id</th>
+            <th scope="col">User Email</th>
+            <th scope="col">First Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="color: aliceblue;" *ngFor="let userInformation of userInformations">
+            <ng-container *ngIf="isViewGroupId==userInformation.groupId">
+              <td style="color: white;">{{userInformation.empId}}</td>
+              <td style="color: white;">{{userInformation.userEmail}}</td>
+              <td style="color: white;">{{userInformation.firstName}}</td>
+            </ng-container>
+          </tr>
+        </tbody>
+      </table>
+    </section>

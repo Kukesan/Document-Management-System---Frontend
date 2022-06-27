@@ -8,16 +8,16 @@ import { UserInformations } from 'src/app/_interfaces/userdetails.model';
 })
 export class UserinfomationsService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  baseUrl="https://localhost:5001/api/UserInformations"
+  baseUrl = "https://localhost:5001/api/UserInformations"
 
-  addUser(userinformations:UserInformations):Observable<UserInformations>{
+  addUser(userinformations: UserInformations): Observable<UserInformations> {
     parseInt(userinformations.empId);
-    return this.http.post<UserInformations>(this.baseUrl,userinformations);
-  } 
+    return this.http.post<UserInformations>(this.baseUrl, userinformations);
+  }
 
-  getUser():Observable<UserInformations[]>{
+  getUser(): Observable<UserInformations[]> {
     return this.http.get<UserInformations[]>(this.baseUrl);
   }
 
@@ -25,11 +25,26 @@ export class UserinfomationsService {
   //   //parseInt(userinformations.empId);
   //   return this.http.post<UserInformations>(this.baseUrl,userinformations.userAccepted);
   // }
-  approveUser(userinformations:UserInformations):Observable<UserInformations>{
-    return this.http.put<UserInformations>(this.baseUrl+'/'+userinformations.id,userinformations);
+  approveUser(userinformations: UserInformations): Observable<UserInformations> {
+    return this.http.put<UserInformations>(this.baseUrl + '/' + userinformations.id, userinformations);
   }
 
-  getAllUsers():Observable<UserInformations[]>{
-    return this.http.get<UserInformations[]>(this.baseUrl+'/'+'GetUserInfo');
+  getAllUsers(): Observable<UserInformations[]> {
+    return this.http.get<UserInformations[]>(this.baseUrl + '/' + 'GetUserInfo');
   }
-}
+
+  updateUser(userinformations: UserInformations): Observable<UserInformations> {
+    return this.http.put<UserInformations>(this.baseUrl + '/' + userinformations.id, userinformations);
+  }
+
+  change(id: string) {
+    console.log("service");
+    console.log(id);
+
+    return this.http.put(`${this.baseUrl}/change/${id}`, {
+      reportProgress: true,
+      observe: 'events',
+      responseType: 'blob'
+    })
+  }
+} 

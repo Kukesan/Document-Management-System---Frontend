@@ -3,10 +3,11 @@ export interface UserInformations {
     empId: string;
     firstName: string;
     lastName:string;
-    address: string;
+    address: string; 
     city: string;
     jobPosition: string;
     telephoneNo: string;
     userAccepted:boolean;
     userEmail:string;
+    groupId:number;
 } 

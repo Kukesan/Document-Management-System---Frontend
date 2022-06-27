@@ -8,7 +8,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { JwtModule } from "@auth0/angular-jwt";
- 
+
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { MenuComponent } from './menu/menu.component';
@@ -47,14 +47,17 @@ import { DeleteOCRComponent } from './dashboard/fileupload/ocr/delete-ocr/delete
 import { DownloadOCRComponent } from './dashboard/fileupload/ocr/download-ocr/download-ocr.component';
 import { UploadOCRComponent } from './dashboard/fileupload/ocr/upload-ocr/upload-ocr.component';
 
-import{MatInputModule} from '@angular/material/input';
-import{MatFormFieldModule} from '@angular/material/form-field';
-import{MatButtonModule} from '@angular/material/button';
-import{MatRippleModule} from '@angular/material/core';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
 import { RecyclebinComponent } from './dashboard/recyclebin/recyclebin.component';
 
+import { DatePipe } from '@angular/common';
+import { GroupsComponent } from './privacy/groups/groups.component';
 
- 
+
+
 export function tokenGetter() {
   return localStorage.getItem("token");
 }
@@ -95,7 +98,8 @@ export function tokenGetter() {
     DownloadOCRComponent,
     UploadOCRComponent,
     DeleteOCRComponent,
-    RecyclebinComponent
+    RecyclebinComponent,
+    GroupsComponent
   ],
   imports: [
     BrowserModule,
@@ -111,43 +115,44 @@ export function tokenGetter() {
     CollapseModule.forRoot(),
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent },
-      {path:'dashboard',component:DashboardComponent},
-      {path:'documents',component:DocumentsComponent},
-      {path:'folders',component:FoldersComponent},
-      {path:'home',component:HomeComponent},
-      {path:'notification',component:NotificationComponent},
-      {path:'search',component:SearchComponent},
-      {path:'settings',component:SettingsComponent},
-      {path:'starred',component:StarredComponent},
-      {path:'issue',component:IssueComponent},
-      {path:'admin-notification',component:AdminNotificationComponent},
-      {path:'admin-search',component:AdminSearchComponent},
-      {path:'admin-info',component:AdminInfoComponent},
-      {path:'define-user',component:DefineUserComponent},
-      {path:'manage-user',component:ManageUserComponent},
-      {path:'bug-report',component:BugReportComponent},
-      {path:'admin-settings',component:AdminSettingsComponent},
-      {path:'userdetails',component:UserdetailsComponent},
-      {path:'upload',component:UploadComponent},
-      {path:'download',component:DownloadComponent},
-      {path:'show-user',component:ShowUserComponent},
-      {path:'edit-user',component:EditUserComponent},
-      {path:'info',component:InfoComponent},
-      {path:'upload-ocr',component:UploadOCRComponent},
-      {path:'fileupload',component:FileuploadComponent},
-      {path:'ocr',component:OcrComponent},
-      {path:'file',component:FileComponent},
-      {path:'barcode',component:BarcodeComponent},
-      {path:'delete-ocr',component:DeleteOCRComponent},
-      {path:'download-ocr',component:DownloadComponent},
-      {path:'recyclebin',component:RecyclebinComponent},
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'documents', component: DocumentsComponent },
+      { path: 'folders', component: FoldersComponent },
+      { path: 'home', component: HomeComponent },
+      { path: 'notification', component: NotificationComponent },
+      { path: 'search', component: SearchComponent },
+      { path: 'settings', component: SettingsComponent },
+      { path: 'starred', component: StarredComponent },
+      { path: 'issue', component: IssueComponent },
+      { path: 'admin-notification', component: AdminNotificationComponent },
+      { path: 'admin-search', component: AdminSearchComponent },
+      { path: 'admin-info', component: AdminInfoComponent },
+      { path: 'define-user', component: DefineUserComponent },
+      { path: 'manage-user', component: ManageUserComponent },
+      { path: 'bug-report', component: BugReportComponent },
+      { path: 'admin-settings', component: AdminSettingsComponent },
+      { path: 'userdetails', component: UserdetailsComponent },
+      { path: 'upload', component: UploadComponent },
+      { path: 'download', component: DownloadComponent },
+      { path: 'show-user', component: ShowUserComponent },
+      { path: 'edit-user', component: EditUserComponent },
+      { path: 'info', component: InfoComponent },
+      { path: 'upload-ocr', component: UploadOCRComponent },
+      { path: 'fileupload', component: FileuploadComponent },
+      { path: 'ocr', component: OcrComponent },
+      { path: 'file', component: FileComponent },
+      { path: 'barcode', component: BarcodeComponent },
+      { path: 'delete-ocr', component: DeleteOCRComponent },
+      { path: 'download-ocr', component: DownloadComponent },
+      { path: 'recyclebin', component: RecyclebinComponent },
+      { path: 'groups', component: GroupsComponent },
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
-      { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard]},
-      { path: '404', component : NotFoundComponent},
+      { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard] },
+      { path: '404', component: NotFoundComponent },
       { path: 'forbidden', component: ForbiddenComponent },
       { path: '', redirectTo: '/home', pathMatch: 'full' },
-      { path: '**', redirectTo: '/404', pathMatch: 'full'}
+      { path: '**', redirectTo: '/404', pathMatch: 'full' }
     ]),
     JwtModule.forRoot({
       config: {
@@ -161,8 +166,9 @@ export function tokenGetter() {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ErrorHandlerService,
-      multi: true
-    }
+      multi: true,
+
+    }, [DatePipe]
   ],
   bootstrap: [AppComponent]
 })

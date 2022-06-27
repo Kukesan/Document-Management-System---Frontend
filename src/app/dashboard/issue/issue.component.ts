@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Issue } from 'src/app/_interfaces/issue.model';
 import { IssueService } from 'src/app/shared/services/issue.service';
+import { DatePipe } from '@angular/common'
 
 @Component({
   selector: 'app-issue',
@@ -9,17 +10,23 @@ import { IssueService } from 'src/app/shared/services/issue.service';
 })
 export class IssueComponent implements OnInit {
 
-  constructor(private issueService : IssueService) { }
+  constructor(private issueService : IssueService,public datepipe: DatePipe) {
+  //  let currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+  
+  //   console.log(currentDateTime);
+   }
 
   form: any = {};
   issues : Issue[] = [];
   issue : Issue={
     issueId : 0,
     description : '',
-    createdDate : '',
+    createdDate : new Date(),
     userEmail:'',
     isSolved:false
   }
+
+  
 
   ngOnInit(): void {
     this.getAllIssues();
@@ -28,6 +35,8 @@ export class IssueComponent implements OnInit {
   submitMsg: boolean = false;
   updateMsg:boolean=false;
   addIssue(){
+    // let createdDate =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+    // console.log(createdDate);
     if(this.issue.issueId===0){
       this.issueService.addIssue(this.issue)
       .subscribe(
@@ -73,5 +82,4 @@ export class IssueComponent implements OnInit {
       }
     )
   }
-
 }

@@ -136,7 +136,7 @@ export class FoldersComponent implements OnInit {
   isView:boolean=false;
   isViewfolderId:number;
   currentfolderName:string;
-  specfiles:FileUpload[]=[];
+
   viewfile(folder:Folder){
     this.isViewfolderId=folder.folderId;
     this.isView=true;
