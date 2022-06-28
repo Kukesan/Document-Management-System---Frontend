@@ -19,7 +19,9 @@
             <td>{{ userinformation.jobPosition }}</td>
             <td>{{userinformation.telephoneNo}}</td>
             <td>{{userinformation.userEmail}}</td>
-            <button (click)="approveUser(userinformation)">{{this.approvebutton}}</button>
+            <td>
+                <button (click)="approveUser(userinformation)">{{this.approvebutton}}</button>
+            </td>
             <!-- <button class="button button4" (click)="updateNotification(notification)">Edit</button>
             <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button> -->
         </tr>

@@ -64,10 +64,10 @@ export class DefineUserComponent implements OnInit {
   approveUser(userinformation : UserInformations){
     if(userinformation.userAccepted==false){
       userinformation.userAccepted=true;
-      this.approvebutton='Cancel'
+      this.approvebutton ='Cancel'
     }else{
       userinformation.userAccepted=false;
-      this.approvebutton='Accept'
+      this.approvebutton ='Accept'
     }
     this.userinformationService.approveUser(userinformation)
     .subscribe(

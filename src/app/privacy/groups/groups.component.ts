@@ -1,8 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/shared/services/group.service';
+import { GroupmessageService } from 'src/app/shared/services/groupmessage.service';
 import { UserinfomationsService } from 'src/app/shared/services/userinfomations.service';
 import { Group } from 'src/app/_interfaces/group.model';
+import { GroupMessage } from 'src/app/_interfaces/groupmessage.model';
 import { UserInformations } from 'src/app/_interfaces/userdetails.model';
 
 @Component({
@@ -12,7 +14,7 @@ import { UserInformations } from 'src/app/_interfaces/userdetails.model';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient) { }
+  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient,private groupmessageService:GroupmessageService) { }
 
   form: any = {};
   groups: Group[] = [];
@@ -158,5 +160,32 @@ export class GroupsComponent implements OnInit {
     //   }
     // )
   }
+  groupmessages:GroupMessage[]=[];
+  groupmessage:GroupMessage={
+    id:0,
+    message:'',
+    groupId:0
+  }
+  getAllGroupMessages(){
+    this.groupmessageService.getAllGroupMessages()
+    .subscribe(
+      response =>{
+        this.groupmessages=response;
+      }
+    )
+  }
+
+  addGroupMessage(){
+    // let createdDate =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
+    // console.log(createdDate);
+      this.groupmessageService.addGroupMessage(this.groupmessage)
+      .subscribe(
+        (response: any)=>{
+          // this.getAllIssues();
+          // this.issue.description='';
+          // this.submitMsg= true;
+        }
+      )
+    }
 
 }
