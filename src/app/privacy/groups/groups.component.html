@@ -87,34 +87,32 @@
             <td style="color: white;">{{userInformation.userEmail}}</td>
             <td style="color: white;">{{userInformation.firstName}}</td>
           </ng-container>
-
-          <form #Form="ngForm" (ngSubmit)="sendMessage()">
-            <div class="form-group">
-              <p><label for="pwd" style="color: white;">Message</label></p>
-              <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="message"
-                [(ngModel)]="groupmessage.message">
-            </div>
-            <button type="submit" class="button button5">Submit</button><br>
-            <div class="row" *ngIf="submitMsg">
-              <div class="col-xs-12">
-                <p class="alert alert-success">
-                  <strong>Notification sent Success!</strong>
-                </p>
-              </div>
-            </div>
-        
-            <div class="row" *ngIf="updateMsg">
-              <div class="col-xs-12">
-                <p class="alert alert-success">
-                  <strong>Notification Updated Success!</strong> Please Refresh the page
-                </p>
-              </div>
-            </div>
-          </form>
-
         </tr>
       </tbody>
     </table>
+    <form #Form="ngForm" (ngSubmit)="sendMessage(groupmessage)">
+      <div class="form-group">
+        <p><label for="pwd" style="color: white;">Message</label></p>
+        <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="message"
+          [(ngModel)]="groupmessage.message">
+      </div>
+      <button type="submit" class="button button5">Submit</button><br>
+      <div class="row" *ngIf="submitMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>Notification sent Success!</strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="updateMsg">
+        <div class="col-xs-12">
+          <p class="alert alert-success">
+            <strong>Notification Updated Success!</strong> Please Refresh the page
+          </p>
+        </div>
+      </div>
+    </form>
   </section>
 
 

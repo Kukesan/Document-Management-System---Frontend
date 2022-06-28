@@ -1,0 +1,13 @@
+<div class="trashtable">
+    <h2 style="color:white;">Group Message</h2>
+    <table>
+        <tr>
+          <th>Group Id</th>
+          <th>Message</th>
+        </tr>
+        <tr *ngFor="let groupmessage of groupmessages">
+            <td>{{groupmessage.groupId}}</td>
+            <td>{{ groupmessage.message }}</td>
+        </tr>
+    </table>
+</div>

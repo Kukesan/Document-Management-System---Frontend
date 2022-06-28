@@ -1,0 +1,15 @@
+<div class="trashtable">
+    <h2 style="color:white;">Group Message</h2>
+    <table>
+        <tr>
+          <th>User Email</th>
+          <th>Login Time</th>
+          <th>Logout Time</th>
+        </tr>
+        <tr *ngFor="let useractivity of useractivitys">
+            <td>{{useractivity.userEmail}}</td>
+            <td>{{useractivity.loginTime}}</td>
+            <td>{{ useractivity.logoutTime }}</td>
+        </tr>
+    </table>
+</div>

@@ -55,6 +55,8 @@ import { RecyclebinComponent } from './dashboard/recyclebin/recyclebin.component
 
 import { DatePipe } from '@angular/common';
 import { GroupsComponent } from './privacy/groups/groups.component';
+import { GroupmessageComponent } from './dashboard/groupmessage/groupmessage.component';
+import { UseractivityComponent } from './privacy/useractivity/useractivity.component';
 
 
 
@@ -99,7 +101,9 @@ export function tokenGetter() {
     UploadOCRComponent,
     DeleteOCRComponent,
     RecyclebinComponent,
-    GroupsComponent
+    GroupsComponent,
+    GroupmessageComponent,
+    UseractivityComponent
   ],
   imports: [
     BrowserModule,
@@ -146,6 +150,8 @@ export function tokenGetter() {
       { path: 'download-ocr', component: DownloadComponent },
       { path: 'recyclebin', component: RecyclebinComponent },
       { path: 'groups', component: GroupsComponent },
+      {path:'groupmessage',component:GroupmessageComponent},
+      {path:'useractivity',component:UseractivityComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard] },

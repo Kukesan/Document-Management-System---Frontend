@@ -14,7 +14,7 @@ import { UserInformations } from 'src/app/_interfaces/userdetails.model';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient,private groupmessageService:GroupmessageService) { }
+  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient, private groupmessageService: GroupmessageService) { }
 
   form: any = {};
   groups: Group[] = [];
@@ -144,7 +144,7 @@ export class GroupsComponent implements OnInit {
 
   visibleName: string;
   isView: boolean = false;
-  isViewGroupId: number;
+  public isViewGroupId: number;
   currentGroupName: string;
 
   viewGroup(group: Group) {
@@ -160,32 +160,37 @@ export class GroupsComponent implements OnInit {
     //   }
     // )
   }
-  groupmessages:GroupMessage[]=[];
-  groupmessage:GroupMessage={
-    id:0,
-    message:'',
-    groupId:0
+  groupmessages: GroupMessage[] = [];
+  groupmessage: GroupMessage = {
+    id: 0,
+    message: '',
+    groupId: 0
   }
-  getAllGroupMessages(){
+  getAllGroupMessages() {
     this.groupmessageService.getAllGroupMessages()
-    .subscribe(
-      response =>{
-        this.groupmessages=response;
-      }
-    )
+      .subscribe(
+        response => {
+          this.groupmessages = response;
+        }
+      )
   }
 
-  addGroupMessage(){
+  addGroupMessage() {
     // let createdDate =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     // console.log(createdDate);
-      this.groupmessageService.addGroupMessage(this.groupmessage)
+    this.groupmessageService.addGroupMessage(this.groupmessage)
       .subscribe(
-        (response: any)=>{
+        (response: any) => {
           // this.getAllIssues();
-          // this.issue.description='';
+          //this.issue.description='';
           // this.submitMsg= true;
         }
       )
-    }
+  }
 
+  sendMessage(groupmessage: GroupMessage) {
+    console.log(this.group.groupId);
+    groupmessage.groupId = this.isViewGroupId;
+    this.addGroupMessage();
+  }
 }

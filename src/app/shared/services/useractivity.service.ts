@@ -24,4 +24,8 @@ export class UseractivityService {
     getAllActivities():Observable<UserActivity[]>{ 
         return this.http.get<UserActivity[]>(this.baseUrl);
     }
+
+    getAllUserActivities():Observable<UserActivity[]>{ 
+      return this.http.get<UserActivity[]>(this.baseUrl+'/GetAllActivityDetails');
+  }
 }
