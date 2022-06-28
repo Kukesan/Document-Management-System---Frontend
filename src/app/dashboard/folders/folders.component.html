@@ -1,17 +1,23 @@
 <div class="trashtable">
   <h1>Folders Details</h1>
-  <form #Form="ngForm" (ngSubmit)="addFolder()">
+  <form #Form="ngForm"  class="was-validated" >
     <div class="form-group">
       <p><label for="name" style="color: white;">Name</label></p>
-      <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name"
-        [(ngModel)]="folder.name">
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name" id="name"
+        [(ngModel)]="folder.name" required="">
+        <div class="invalid-feedback">
+          Folder Name is Required
+      </div>
     </div>
     <div class="form-group">
       <p><label for="comment" style="color: white;">Comment</label></p>
-      <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment"
-        [(ngModel)]="folder.comment">
+      <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment" id="comment"
+        [(ngModel)]="folder.comment" required="">
+        <div class="invalid-feedback">
+          Comments are Required
+       </div>
     </div>
-    <button type="submit" class="button button5">Submit</button><br>
+    <button type="submit" class="button button5" [disabled]="!folder.name||!folder.comment " (click)="addFolder()">Submit</button><br>
     <div class="row" *ngIf="submitMsg">
       <div class="col-xs-12">
         <p class="alert alert-success">
@@ -29,15 +35,18 @@
     </div>
   </form>
 
- 
+ <br>
   <table>
     <tr>
       <th>Name</th>
       <th>Comment</th>
+      <th>Created Date</th>
+      <th>Action</th>
     </tr>
     <tr *ngFor="let folder of folders">
       <td>{{ folder.name }}</td>
       <td>{{folder.comment}}</td>
+      <td>{{folder.createdDate}}</td>
       <button class="button button4" (click)="updateFolder(folder)">Edit</button>
       <button class="button button3" (click)="deleteFolder(folder.folderId)">Delete</button>
       <button class="" (click)="addfiles(folder)">Add Files</button>
@@ -54,6 +63,7 @@
           <th scope="col">File</th>
           <th scope="col">Name</th>
           <th scope="col">Comments</th>
+          <th scope="col">Created Date</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
@@ -65,6 +75,7 @@
                 style="width: 40px; height:40px"></td>
             <td style="color: white;">{{fileUpload.name}}</td>
             <td style="color: white;">{{fileUpload.address}}</td>
+            <td style="color: white;">{{fileUpload.createdDate}}</td>
             <td style="color: white;">
               <button (click)="addToFolder(fileUpload)">Add To Folder</button>
             </td>
@@ -80,6 +91,7 @@
           <th scope="col">File</th>
           <th scope="col">Name</th>
           <th scope="col">Comments</th>
+          <th scope="col">Created Date</th>
         </tr>
       </thead>
       <tbody>
@@ -90,6 +102,7 @@
                 style="width: 40px; height:40px"></td>
             <td style="color: white;">{{fileUpload.name}}</td>
             <td style="color: white;">{{fileUpload.address}}</td>
+            <td style="color: white;">{{fileUpload.createdDate}}</td>
           </ng-container>
         </tr>
       </tbody>

@@ -38,3 +38,15 @@
     opacity: 1;
     right: 0;
   }
+
+  div.trashtable{
+    border-radius: 5px;
+    border: 1px;
+    border-color: #ddd;
+    border-style: groove;
+    padding: 15px;
+    background-color: #27293D;
+    box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}

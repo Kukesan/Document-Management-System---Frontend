@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FileService } from 'src/app/shared/services/file.service';
@@ -12,7 +13,7 @@ import { Folder } from 'src/app/_interfaces/folder.model';
 })
 export class FoldersComponent implements OnInit {
 
-  constructor(private http: HttpClient,private folderService: FolderService,private fileService: FileService ) { }
+  constructor(private http: HttpClient,private folderService: FolderService,private fileService: FileService ,public datepipe:DatePipe) { }
 
   form: any = {};
   folders : Folder[] = [];
@@ -20,7 +21,7 @@ export class FoldersComponent implements OnInit {
     folderId:0,
     name:'',
     comment:'', 
-    createddate:''
+    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
   }
 
   fileUploads: FileUpload[] = [];
@@ -41,6 +42,7 @@ export class FoldersComponent implements OnInit {
           this.getAllFolders();
           this.folder.name=''; 
           this.submitMsg= true;
+          console.log(this.folder);
         }
       )
     }else{

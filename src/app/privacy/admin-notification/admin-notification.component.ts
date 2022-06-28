@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NotificationService } from 'src/app/shared/services/notification.service';
 import { Notification } from 'src/app/_interfaces/notification.model';
@@ -9,22 +10,25 @@ import { Notification } from 'src/app/_interfaces/notification.model';
 })
 export class AdminNotificationComponent implements OnInit {
 
-  constructor(private notificationService : NotificationService) { }
+  constructor(private notificationService : NotificationService,public datepipe:DatePipe) { }
 
   form: any = {};
   notifications : Notification[] = [];
   notification : Notification={
     id:0,
-    message:''
+    message:'',
+    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
   }
 
   ngOnInit(): void {
     this.getAllNotifications();
   }
 
+
   submitMsg: boolean = false;
   updateMsg:boolean=false;
   addNotification(){
+    //this.notification.createdDate=this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss');
     if(this.notification.id===0){
       this.notificationService.addNotification(this.notification)
       .subscribe(

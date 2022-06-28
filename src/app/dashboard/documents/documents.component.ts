@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -18,6 +19,7 @@ export class DocumentsComponent implements OnInit {
   user: UserToCreate;
   status:boolean=true;
   folderId:number;
+  createdDate:string;
 
   fileUploads: FileUpload[] = [];
   response: {dbPath: ''};
@@ -30,7 +32,7 @@ export class DocumentsComponent implements OnInit {
   userdata : FileUpload;
  
 
-  constructor(private http: HttpClient, private fileService: FileService){}
+  constructor(private http: HttpClient, private fileService: FileService,public datepipe:DatePipe){}
 
   ngOnInit(){
     this.isCreate =true;
@@ -49,7 +51,8 @@ export class DocumentsComponent implements OnInit {
       address: this.address,
       imgPath: this.response.dbPath,
       status:this.status,
-      folderId:this.folderId
+      folderId:this.folderId,
+      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
     }
 
     this.http.post('https://localhost:5001/api/FileUpload', this.user)
@@ -94,8 +97,9 @@ export class DocumentsComponent implements OnInit {
 
   change(fileUpload)  {
     console.log('test1');
-    this.fileService.change(fileUpload.id).subscribe() 
-     
+    this.fileService.change(fileUpload.id).subscribe(() =>{
+    this.getUsers(); 
+    });
  }
 
 }

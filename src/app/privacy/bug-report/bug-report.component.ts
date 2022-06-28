@@ -17,7 +17,7 @@ export class BugReportComponent implements OnInit {
   issue : Issue={
     issueId : 0,
     description : '',
-    createdDate : new Date(),
+    createdDate : '',
     userEmail:'',
     isSolved:false
   }

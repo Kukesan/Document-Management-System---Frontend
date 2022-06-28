@@ -5,4 +5,5 @@ export interface FileUpload{
     imgPath: string,
     status:boolean,
     folderId:number
+    createdDate:string;
 }

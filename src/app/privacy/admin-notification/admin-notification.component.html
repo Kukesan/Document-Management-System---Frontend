@@ -4,8 +4,9 @@
         <p><label for="email" style="color: white;">UserId</label></p>
         <input type="text" class="form-control form-control-lg" placeholder="Enter UserId" name="UserId" [(ngModel)]="notification.id">
       </div> -->
+      <h1 style="color: white;">Notifications</h1>
     <div class="form-group">
-      <p><label for="pwd" style="color: white;">Description</label></p>
+      <!-- <p><label for="pwd" style="color: white;">Description</label></p> -->
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="message"
         [(ngModel)]="notification.message">
     </div>
@@ -29,10 +30,12 @@
 
   <table>
     <tr>
-      <th>Notifications</th>
+      <th>Notification</th>
+      <th>Created Date</th>
     </tr>
     <tr (click)="pop(notification)" *ngFor="let notification of notifications">
       <td>{{ notification.message }}</td>
+      <td>{{notification.createdDate}}</td>
       <button class="button button4" (click)="updateNotification(notification)">Edit</button>
       <button class="button button3" (click)="deleteNotification(notification.id)">Delete</button>
     </tr>

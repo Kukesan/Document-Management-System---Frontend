@@ -16,6 +16,9 @@ export class SearchComponent implements OnInit {
   name: string;
   address: string;
   user: UserToCreate;
+  status:boolean=true;
+  createdDate:string;
+  
   fileUploads: FileUpload[] = [];
   response: {dbPath: ''};
   photos: string[] = [];
@@ -39,4 +42,6 @@ export class SearchComponent implements OnInit {
      
   });
 }
+
+
 }

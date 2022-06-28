@@ -21,7 +21,7 @@ export class IssueComponent implements OnInit {
   issue : Issue={
     issueId : 0,
     description : '',
-    createdDate : new Date(),
+    createdDate : this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
     userEmail:'',
     isSolved:false
   }

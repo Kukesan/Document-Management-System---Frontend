@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/shared/services/group.service';
@@ -14,7 +15,7 @@ import { UserInformations } from 'src/app/_interfaces/userdetails.model';
 })
 export class GroupsComponent implements OnInit {
 
-  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient, private groupmessageService: GroupmessageService) { }
+  constructor(private groupService: GroupService, private userInformationService: UserinfomationsService, private http: HttpClient, private groupmessageService: GroupmessageService,public datepipe:DatePipe) { }
 
   form: any = {};
   groups: Group[] = [];
@@ -22,7 +23,7 @@ export class GroupsComponent implements OnInit {
     groupId: 0,
     name: '',
     comment: '',
-    createddate: ''
+    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
   }
 
   userInformations: UserInformations[] = [];
@@ -164,7 +165,8 @@ export class GroupsComponent implements OnInit {
   groupmessage: GroupMessage = {
     id: 0,
     message: '',
-    groupId: 0
+    groupId:0,
+    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
   }
   getAllGroupMessages() {
     this.groupmessageService.getAllGroupMessages()

@@ -13,6 +13,7 @@
                         <th> File </th>
                         <th>Name</th>
                         <th>Comments</th>
+                        <th>Created Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                                 style="width: 40px; height:40px"></td>
                         <td style="color: white;"> {{userdata.name}}</td>
                         <td style="color: white;">{{userdata.address}}</td>
+                        <td style="color: white;">{{userdata.createdDate}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -60,6 +62,7 @@
                     <th scope="col">File</th>
                     <th scope="col">Name</th>
                     <th scope="col">Comments</th>
+                    <th scope="col">Created Date</th>
                     <th scope="col">Action</th>
 
                 </tr>
@@ -72,6 +75,8 @@
                             style="width: 40px; height:40px"></td>
                     <td style="color: white;">{{fileUpload.name}}</td>
                     <td style="color: white;">{{fileUpload.address}}</td>
+                    <td style="color: white;">{{fileUpload.createdDate}}</td>
+
                     <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
                     <td style="color: white;">
                         <app-download [fileUrl]="fileUpload.imgPath"></app-download>

@@ -34,10 +34,12 @@
     <tr>
       <th>Name</th>
       <th>Comment</th>
+      <th>Created Date</th>
     </tr>
     <tr *ngFor="let group of groups">
       <td>{{ group.name }}</td>
       <td>{{group.comment}}</td>
+      <td>{{group.createdDate}}</td>
       <button class="button button4" (click)="updateGroup(group)">Edit</button>
       <button class="button button3" (click)="deleteGroup(group.groupId)">Delete</button>
       <button class="" (click)="addUsers(group)">Add Users</button>

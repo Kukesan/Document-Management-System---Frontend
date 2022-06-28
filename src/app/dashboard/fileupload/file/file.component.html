@@ -1,65 +1,76 @@
 <div class="trashtable">
-        <div class="photos" *ngIf="photos.length > 0">
-            <h2 style="text-align:center;">Available Files</h2>
-            <br><br><br>
-            <input type="search" placeholder="Enter file name to search" style="width: 30%;" id="search" name="search"
-                [(ngModel)]="name"> &nbsp;
+    <div class="photos" *ngIf="photos.length > 0">
+        <h2 style="text-align:center;">Available Files</h2>
+        <br><br><br>
+        <input type="search" placeholder="Enter file name to search" style="width: 30%;" id="search" name="search"
+            [(ngModel)]="name"> &nbsp;
 
-            <button type="button" class="btn btn-primary" (click)="search()">Search</button>
-            <div *ngIf="element">
-                <table class="table table-striped">
-                    <thead>
-                        <tr style="color:white;">
-                            <th> File </th>
-                            <th>Name</th>
-                            <th>Comments</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="color: aliceblue;">
-                            <!-- <td><img [src]="createImgPath(userdata.imgPath)" style="width:60px; height:60px;"></td> -->
-                            <td><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
-                                    style="width: 40px; height:40px"></td>
-                            <td style="color: white;"> {{userdata.name}}</td>
-                            <td style="color: white;">{{userdata.address}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <app-download [fileUrl]="userdata.imgPath"></app-download>
-            </div>
-            <br><br>
+        <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+        <div *ngIf="element">
+            <table class="table table-striped">
+                <thead>
+                    <tr style="color:white;">
+                        <th> File </th>
+                        <th>Name</th>
+                        <th>Comments</th>
+                        <th>Created Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="color: aliceblue;">
+                        <!-- <td><img [src]="createImgPath(userdata.imgPath)" style="width:60px; height:60px;"></td> -->
+                        <td><img src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
+                                style="width: 40px; height:40px"></td>
+                        <td style="color: white;"> {{userdata.name}}</td>
+                        <td style="color: white;">{{userdata.address}}</td>
+                        <td style="color: white;">{{userdata.createdDate}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <app-download [fileUrl]="userdata.imgPath"></app-download>
         </div>
-        <h3 style="text-align:center;">Upload File</h3>
-        <form class="was-validated">
-            <div class="mb-3">
-                <label for="name">File Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Enter the File name"
-                    [(ngModel)]="name" required="">
-                    <div class="invalid-feedback">
-                        File name is Required
-                    </div>
+        <br><br>
+    </div>
+    <h3 style="text-align:center;">Upload File</h3>
+    <form class="was-validated">
+        <div class="mb-3">
+            <label for="name">File Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter the File name"
+                [(ngModel)]="name" required="">
+            <div class="invalid-feedback">
+                File name is Required
             </div>
+        </div>
 
-            <div class="mb-3">
-                <label for="address">Comments</label>
-                <input type="text" class="form-control" id="address" name="address"
-                    placeholder="Provide the comments about Document" [(ngModel)]="address" required="">
-                    <div class="invalid-feedback">
-                       Comments are Required
-                    </div>
+        <div class="mb-3">
+            <label for="address">Comments</label>
+            <input type="text" class="form-control" id="address" name="address"
+                placeholder="Provide the comments about Document" [(ngModel)]="address" required="">
+            <div class="invalid-feedback">
+                Comments are Required
             </div>
+        </div>
 
-            <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
-            <div class="row">
-                <div class="offset-md-5 col-md-2">
-                    <button type="button" class="btn btn-primary" [disabled]="!name||!address " (click)="onCreate()">Create File</button>
-                </div>
+        <app-upload (onUploadFinished)="uploadFinished($event)"></app-upload>
+        <div class="row">
+            <div class="offset-md-5 col-md-2">
+                <button type="button" class="btn btn-primary" [disabled]="!name||!address " (click)="onCreate()">Create
+                    File</button>
             </div>
-        </form> 
+        </div>
         <br>
-    
+        <div class="row" *ngIf="!submitMsg">
+            <div class="col-xs-12">
+                <p class="alert alert-success">
+                    <strong>File Created</strong>
+                </p>
+            </div>
+        </div>
+    </form>
+    <br>
+
 </div>
-    <!-- <section class="users">
+<!-- <section class="users">
         <table class="table table-striped">
             <thead>
                 <tr style="color:white;">
@@ -72,14 +83,14 @@
             </thead>
             <tbody>
                 <tr style="color: aliceblue;" *ngFor="let fileUpload of fileUploads"> -->
-                    <!-- <td style="color: white;"><img [src]="createImgPath(user.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>  -->
-                    <!-- <td style="color: white;"> <img
+<!-- <td style="color: white;"><img [src]="createImgPath(user.imgPath)" alt="profile picture" style="width:60px; height:60px;"></td>  -->
+<!-- <td style="color: white;"> <img
                             src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/folder-green-512.png"
                             style="width: 40px; height:40px"></td>
                     <td style="color: white;">{{fileUpload.name}}</td>
                     <td style="color: white;">{{fileUpload.address}}</td> -->
-                    <!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
-                    <!-- <td style="color: white;">
+<!-- <td><app-delete [fileUrl]="userdata.imgPath"></app-delete></td>-->
+<!-- <td style="color: white;">
                         <app-download [fileUrl]="fileUpload.imgPath"></app-download>
                     </td>
                 </tr>
@@ -91,4 +102,4 @@
             </div>
         </div>
     </section> -->
-    <!-- </article> -->
+<!-- </article> -->

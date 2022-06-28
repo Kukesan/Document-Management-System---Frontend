@@ -1,6 +1,6 @@
 <div class="trashtable">
-    <h2 style="text-align:center;">Search your Files</h2>
-    <br><br><br>
+    <h1 style="text-align:center;">Search your Files</h1>
+    <br>
     <input type="search" placeholder="Enter file name to search" style="width: 60%;" id="search" name="search"
         [(ngModel)]="name"> &nbsp;
 
@@ -24,6 +24,7 @@
             </tbody>
         </table>
         <app-download [fileUrl]="userdata.imgPath"></app-download>
+        <button type="button" class="btn btn-success" (click)="change(fileUpload)">Delete</button>
     </div>
     <br><br>
 </div>

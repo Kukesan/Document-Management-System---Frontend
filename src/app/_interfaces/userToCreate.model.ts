@@ -3,5 +3,6 @@ export interface UserToCreate {
     address: string,
     imgPath: string,
     status:boolean,
-    folderId:number
+    folderId:number,
+    createdDate:string
 }

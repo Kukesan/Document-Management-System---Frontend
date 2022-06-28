@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
@@ -12,13 +13,15 @@ import { UserToCreate } from 'src/app/_interfaces/userToCreate.model';
 })
 export class OcrComponent implements OnInit {
 
-  constructor(private http: HttpClient, private ocrfileService: OcrfileService){}
+  constructor(private http: HttpClient, private ocrfileService: OcrfileService,public datepipe:DatePipe){}
 
   isCreate: boolean;
   name: string;
   address: string;
   status:boolean=true;
   folderId:number;
+  createdDate:string;
+  
   user: UserToCreate;
   users: FileUpload[] = [];
   response: {dbPath: ''};
@@ -30,7 +33,7 @@ export class OcrComponent implements OnInit {
   element:boolean=false;
   userdata : FileUpload;
  
-
+  submitMsg:boolean=true;
 
   ngOnInit(){
     this.isCreate = true;
@@ -51,7 +54,8 @@ export class OcrComponent implements OnInit {
       address: this.address,
       imgPath: this.response.dbPath,
       status:this.status,
-      folderId:this.folderId
+      folderId:this.folderId,
+      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
     }
 
     this.http.post('https://localhost:5001/api/fileOcrUpload', this.user)
@@ -59,6 +63,7 @@ export class OcrComponent implements OnInit {
       next: _ => {
         this.getUsers();
         this.isCreate = false;
+        this.submitMsg=false;
       },
       error: (err: HttpErrorResponse) => console.log(err)
     });

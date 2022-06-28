@@ -1,11 +1,14 @@
 
 <div class="trashtable">
+    <h1 style="color: white;">Notifications</h1>
     <table>
         <tr>
-          <th>Notifications</th>
+          <th>Notification</th>
+          <th>Created Date</th>
         </tr><br>
-        <ul *ngFor="let notification of notifications">
-            <li>{{ notification.message }}</li>
-        </ul>
+        <tr *ngFor="let notification of notifications">
+            <td>{{ notification.message }}</td>
+            <td>{{notification.createdDate}}</td>
+        </tr>
     </table>
 </div>

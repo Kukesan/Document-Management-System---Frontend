@@ -1,24 +1,39 @@
 <div class="trashtable">
     <h1>OCR File Upload</h1>
-    <form>
+    <form class="was-validated">
       <div class="mb-3">
         <label for="name">File Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Enter the File name"
-          [(ngModel)]="name">
+          [(ngModel)]="name" required="">
+          <div class="invalid-feedback">
+            File name is Required
+        </div>
       </div>
 
       <div class="mb-3">
         <label for="address">Comments</label>
         <input type="text" class="form-control" id="address" name="address"
-          placeholder="Provide the comments about Document" [(ngModel)]="address">
+          placeholder="Provide the comments about Document" 
+          [(ngModel)]="address" required="">
+          <div class="invalid-feedback">
+            Comments are Required
+        </div>
       </div>
 
       <app-upload-ocr (onUploadFinished)="uploadFinished($event)"></app-upload-ocr>
       <div class="row">
         <div class="offset-md-5 col-md-2">
-          <button type="button" class="btn btn-primary" (click)="onCreate()">Create File</button>
+          <button type="button" class="btn btn-primary" [disabled]="!name||!address " (click)="onCreate()">Create File</button>
         </div>
       </div>
+      <br>
+      <div class="row" *ngIf="!submitMsg">
+        <div class="col-xs-12">
+            <p class="alert alert-success">
+                <strong>File Created</strong>
+            </p>
+        </div>
+    </div>
     </form>
     <br>
     <div class="photos" *ngIf="photos.length > 0">
