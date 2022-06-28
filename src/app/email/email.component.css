@@ -8,15 +8,18 @@ div.trashtable{
     box-shadow:
        inset 0 -3em 3em rgba(0,0,0,0.1),
              0.3em 0.3em 1em rgba(0,0,0,0.3);
-}
-input{
-
+    width: 600px;
+    margin-left: 200px;
+    margin-top: 100px;
+  }
+  input{
+  
   height: 20px; 
   margin: 5px 0px;
-}
-.button {
+  }
+  .button {
   border-radius: 5px;
-  background-color: #4CAF50; 
+  background-color: #4CAF50; /* Green */
   border: none;
   color: white;
   padding: 8px 12px;
@@ -28,98 +31,66 @@ input{
   transition-duration: 0.4s;
   cursor: pointer;
   width: 100px;
-}
-.button5 {
+  }
+  .button5 {
   background-color: white;
   color: black;
   border: 2px solid #555555;
-}
-.button5:hover {
+  }
+  .button5:hover {
   background-color: #555555;
   color: white;
-}
-
-table {
+  }
+  
+  table {
   border-collapse: collapse;
   width: 100%;
-}
-
-th {
+  }
+  
+  th {
   padding: 15px 8px;
   text-align: left;
   border-bottom: 2px solid #ddd;
   font-size: 20px;
-}
-td {
+  }
+  td {
   padding: 8px;
   text-align: left;
   font-family: 'Roboto';
-}
-tr{
+  }
+  tr{
   height: 55px;
-}
-tr:hover {background-color: gray;}
-
-.starimg{
+  }
+  tr:hover {background-color: gray;}
+  
+  .starimg{
   width: 30px;
   -webkit-filter: grayscale(1) invert(1);
   filter: grayscale(1) invert(1);
-}
-
-.button3:hover {
+  }
+  
+  .button3:hover {
+  /* background-color: white;  */
   color: black; 
   border: 2px solid #f44336;
-}
-
-.button3 {
+  }
+  
+  .button3 {
   background-color: #f44336;
   color: white;
   width: 80px;
   height: 40px;
-}
-
-.button4:hover {
+  }
+  
+  .button4:hover {
   background-color: white;
   color: black;
   border: 2px solid #e7e7e7;
-}
-
-.button4 {
+  }
+  
+  .button4 {
   color: black;
   background-color: #e7e7e7;
   width: 80px;
   height: 40px;
-}
- 
-/* .form-group{
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-  display: table-cell;
-  width: 490px;
-}
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 80%;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10%;
-  margin-bottom: 70%;
-  background-color:#3fa877;
-}
-
-.example-full-width {
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-} */
-
-
-h1{
-  
-  color: white;
-  padding: 0 5px;
-}
+  }

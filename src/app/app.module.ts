@@ -57,6 +57,7 @@ import { DatePipe } from '@angular/common';
 import { GroupsComponent } from './privacy/groups/groups.component';
 import { GroupmessageComponent } from './dashboard/groupmessage/groupmessage.component';
 import { UseractivityComponent } from './privacy/useractivity/useractivity.component';
+import { EmailComponent } from './email/email.component';
 
 
 
@@ -103,7 +104,8 @@ export function tokenGetter() {
     RecyclebinComponent,
     GroupsComponent,
     GroupmessageComponent,
-    UseractivityComponent
+    UseractivityComponent,
+    EmailComponent
   ],
   imports: [
     BrowserModule,
@@ -152,6 +154,7 @@ export function tokenGetter() {
       { path: 'groups', component: GroupsComponent },
       {path:'groupmessage',component:GroupmessageComponent},
       {path:'useractivity',component:UseractivityComponent},
+      {path:'email',component:EmailComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard] },
