@@ -176,7 +176,7 @@ export class GroupsComponent implements OnInit {
         }
       )
   }
-
+  submitNotiMsg:boolean=false;
   addGroupMessage() {
     // let createdDate =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     // console.log(createdDate);
@@ -185,7 +185,7 @@ export class GroupsComponent implements OnInit {
         (response: any) => {
           // this.getAllIssues();
           //this.issue.description='';
-          // this.submitMsg= true;
+           this.submitNotiMsg= true;
         }
       )
   }

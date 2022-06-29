@@ -21,6 +21,7 @@ export class OcrComponent implements OnInit {
   status:boolean=true;
   folderId:number;
   createdDate:string;
+  userId:string;
   
   user: UserToCreate;
   users: FileUpload[] = [];
@@ -55,7 +56,8 @@ export class OcrComponent implements OnInit {
       imgPath: this.response.dbPath,
       status:this.status,
       folderId:this.folderId,
-      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
+      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
+      userId:this.userId
     }
 
     this.http.post('https://localhost:5001/api/fileOcrUpload', this.user)

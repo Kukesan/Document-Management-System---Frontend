@@ -3,9 +3,17 @@
     <form #Form="ngForm" (ngSubmit)="addEmail()">
         <div class="form-group" class="was-validated">
             <label>Provide Your Working Email To Reset the Password <b>Admin Will Contact Later!</b> </label>
-            <input type="text" class="form-control form-control-lg" placeholder="Enter Your User Email" name="Description"
-                [(ngModel)]="emaildto.subject" required="">
+            <input type="text" class="form-control form-control-lg" placeholder="Enter Your User Email"
+                name="Description" [(ngModel)]="emaildto.subject" required="">
         </div>
         <button type="submit" class="button button5" [disabled]="!emaildto.subject">Submit</button><br>
+        <div class="row" *ngIf="sentMsg">
+            <div class="col-xs-12">
+                <p class="alert alert-success">
+                    <strong>Your Request sent Success Admin will Check and Mail</strong>
+                </p>
+            </div>
+        </div>
+        <button routerLink="/login">Back to Login</button>
     </form>
 </div>

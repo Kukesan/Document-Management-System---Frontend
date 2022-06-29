@@ -5,4 +5,5 @@ export interface UserToCreate {
     status:boolean,
     folderId:number,
     createdDate:string
+    userId:string;
 }

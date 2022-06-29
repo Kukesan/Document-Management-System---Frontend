@@ -13,7 +13,7 @@ export class DefineUserComponent implements OnInit {
 
   
   form: any = {};
-  approvebutton :string='Hello';
+  approvebutton :string='';
   userinformations : UserInformations[] = [];
   userinformation : UserInformations={
     id:0,
@@ -41,6 +41,7 @@ export class DefineUserComponent implements OnInit {
     .subscribe(
       response =>{
         this.userinformations=response;
+        console.log(this.userinformations)
       }
     )
   }
@@ -76,5 +77,9 @@ export class DefineUserComponent implements OnInit {
         this.getAllUsers();
       }
     )
+  }
+
+  pop(userinformation:UserInformations) {
+    this.userinformation = userinformation;
   }
 }

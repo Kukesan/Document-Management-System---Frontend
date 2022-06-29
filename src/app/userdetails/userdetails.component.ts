@@ -37,6 +37,7 @@ export class UserdetailsComponent implements OnInit {
     this.userinformationService.addUser(this.userinformation)
       .subscribe(
         (response: any) => {
+          console.log("test1");
           this.registerationSuccess=true;
           this.router.navigate(["/dashboard"]);
         }

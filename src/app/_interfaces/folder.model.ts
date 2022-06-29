@@ -3,4 +3,5 @@ export interface Folder{
     name:string;
     comment:string;
     createdDate:string;
+    userId:string;
 }

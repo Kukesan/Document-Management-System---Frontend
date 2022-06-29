@@ -19,6 +19,7 @@ export class FileComponent implements OnInit {
   status:boolean=true;
   folderId:number;
   createdDate:string;
+  userId:string;
 
   user: UserToCreate;
   fileUploads: FileUpload[] = [];
@@ -53,7 +54,8 @@ export class FileComponent implements OnInit {
       imgPath: this.response.dbPath,
       status:this.status,
       folderId:this.folderId,
-      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
+      createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
+      userId:this.userId
     }
 
     this.http.post('https://localhost:5001/api/FileUpload', this.user)

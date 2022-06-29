@@ -1,11 +1,11 @@
 <div class="trashtable">
-  <form #Form="ngForm" (ngSubmit)="addUser()" class="was-validated">
+  <form #Form="ngForm"  class="was-validated">
     <div class="form-group">
       <p><label for="pwd" style="color: white;">Employee Id</label></p>
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="empId"
         [(ngModel)]="userinformation.empId" required="">
       <div class="invalid-feedback">
-        File name is Required
+        Employee Id is Required
       </div>
     </div>
 
@@ -14,7 +14,7 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="firstName"
         [(ngModel)]="userinformation.firstName" required="">
       <div class="invalid-feedback">
-        File name is Required
+        First Name is Required
       </div>
     </div>
     <div class="form-group">
@@ -22,7 +22,7 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="lastName"
         [(ngModel)]="userinformation.lastName" required="">
         <div class="invalid-feedback">
-          File name is Required
+          Last Name is Required
         </div>
 
     </div>
@@ -31,7 +31,7 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="address"
         [(ngModel)]="userinformation.address" required="">
         <div class="invalid-feedback">
-          File name is Required
+          Address is Required
         </div>
     </div>
     <div class="form-group">
@@ -39,7 +39,7 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="city"
         [(ngModel)]="userinformation.city" required="">
         <div class="invalid-feedback">
-          File name is Required
+          City is Required
         </div>
     </div>
     <div class="form-group">
@@ -47,7 +47,7 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="jobPosition"
         [(ngModel)]="userinformation.jobPosition" required="">
         <div class="invalid-feedback">
-          File name is Required
+          Job Position is Required
         </div>
     </div>
     <div class="form-group">
@@ -55,14 +55,14 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Description" name="telephoneNo"
         [(ngModel)]="userinformation.telephoneNo" required="">
         <div class="invalid-feedback">
-          File name is Required
+          Telephone Number is Required
         </div>
     </div>
-    <button type="submit" class="button button5">Submit</button><br> -->
+    <button type="submit" class="button button5" (click)="addUser()">Register</button><br> 
     <div class="row" *ngIf="registerationSuccess">
       <div class="col-xs-12">
         <p class="alert alert-success">
-          <strong>Notification sent Success!</strong>
+          <strong>Registration is Success Admin will Approve You Please Wait</strong>
         </p>
       </div>
     </div>

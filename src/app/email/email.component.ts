@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EmailService } from '../shared/services/email.service';
 import { EmailDto } from '../_interfaces/email.model';
 
@@ -9,7 +10,7 @@ import { EmailDto } from '../_interfaces/email.model';
 })
 export class EmailComponent implements OnInit {
 
-  constructor(private emailService:EmailService) { }
+  constructor(private emailService:EmailService,private router: Router) { }
 
   form: any = {};
   emaildtos : EmailDto[] = [];
@@ -22,6 +23,7 @@ export class EmailComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sentMsg:boolean=false;
   addEmail(){
     // let createdDate =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
     // console.log(createdDate);
@@ -29,9 +31,10 @@ export class EmailComponent implements OnInit {
       .subscribe(
         (response: any)=>{
           // this.getAllIssues();
-          // this.issue.description='';
-          // this.submitMsg= true;
+           this.emaildto.subject='';
+           this.sentMsg= true;
         }
       )
+      
     }
 }

@@ -36,7 +36,7 @@
       <th>Comment</th>
       <th>Created Date</th>
     </tr>
-    <tr *ngFor="let group of groups">
+    <tr (click)="pop(group)" *ngFor="let group of groups">
       <td>{{ group.name }}</td>
       <td>{{group.comment}}</td>
       <td>{{group.createdDate}}</td>
@@ -61,14 +61,14 @@
       </thead>
       <tbody>
         <tr style="color: aliceblue;" *ngFor="let userInformation of userInformations">
-          <ng-container *ngIf="userInformation.groupId==-1">
+          <!-- <ng-container *ngIf="userInformation.groupId==-1"> -->
             <td style="color: white;">{{userInformation.empId}}</td>
             <td style="color: white;">{{userInformation.userEmail}}</td>
             <td style="color: white;">{{userInformation.firstName}}</td>
             <td style="color: white;">
               <button (click)="addToGroup(userInformation)">Add To Group</button>
             </td>
-          </ng-container>
+          <!-- </ng-container> -->
         </tr>
       </tbody>
     </table>
@@ -107,7 +107,7 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="updateMsg">
+      <div class="row" *ngIf="submitNotiMsg">
         <div class="col-xs-12">
           <p class="alert alert-success">
             <strong>Notification Updated Success!</strong> Please Refresh the page

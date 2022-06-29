@@ -197,3 +197,8 @@ body{
 .btn-outline-success:hover{
   background-color: #3EA977;
 }
+
+.profile-img{
+  width: 150px;
+  border-radius: 5px;
+}

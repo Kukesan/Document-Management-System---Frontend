@@ -22,7 +22,6 @@ export class RecyclebinComponent implements OnInit {
     console.log(fileUpload.id);
     if(confirm(`Are you sure you want to delete User ${fileUpload.id}`)) {
       this.fileService.deleteUser(fileUpload.id).subscribe(res => {
-      
         var closeModalBtn = document.getElementById('add-edit-modal-close');
         this.getReUsers();
       if(closeModalBtn) {

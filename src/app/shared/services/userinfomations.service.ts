@@ -33,6 +33,10 @@ export class UserinfomationsService {
     return this.http.get<UserInformations[]>(this.baseUrl + '/' + 'GetUserInfo');
   }
 
+  getAllUsersforGroup(): Observable<UserInformations[]> {
+    return this.http.get<UserInformations[]>(this.baseUrl + '/' + 'GetUserInformations');
+  }
+
   updateUser(userinformations: UserInformations): Observable<UserInformations> {
     return this.http.put<UserInformations>(this.baseUrl + '/' + userinformations.id, userinformations);
   }

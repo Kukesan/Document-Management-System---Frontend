@@ -6,4 +6,5 @@ export interface FileUpload{
     status:boolean,
     folderId:number
     createdDate:string;
+    userId:string;
 }

@@ -21,7 +21,8 @@ export class FoldersComponent implements OnInit {
     folderId:0,
     name:'',
     comment:'', 
-    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss')
+    createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
+    userId:''
   }
 
   fileUploads: FileUpload[] = [];

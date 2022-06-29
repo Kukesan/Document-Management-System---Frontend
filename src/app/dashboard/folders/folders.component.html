@@ -43,7 +43,7 @@
       <th>Created Date</th>
       <th>Action</th>
     </tr>
-    <tr *ngFor="let folder of folders">
+    <tr (click)="pop(folder)" *ngFor="let folder of folders">
       <td>{{ folder.name }}</td>
       <td>{{folder.comment}}</td>
       <td>{{folder.createdDate}}</td>
