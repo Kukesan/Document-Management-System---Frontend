@@ -35,6 +35,9 @@ export class GroupsComponent implements OnInit {
 
   submitMsg: boolean = false;
   updateMsg: boolean = false;
+  submitNoti:boolean=false;
+  updateNoti: boolean =false;
+
   addGroup() {
     if (this.group.groupId === 0) {
       this.groupService.addGroup(this.group)
@@ -42,6 +45,7 @@ export class GroupsComponent implements OnInit {
           (response: any) => {
             this.getAllGroups();
             this.group.name = '';
+            this.group.comment='';
             this.submitMsg = true;
           }
         )

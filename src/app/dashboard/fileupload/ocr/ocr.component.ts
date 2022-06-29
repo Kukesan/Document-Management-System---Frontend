@@ -22,6 +22,7 @@ export class OcrComponent implements OnInit {
   folderId:number;
   createdDate:string;
   userId:string;
+  userEmail:string;
   
   user: UserToCreate;
   users: FileUpload[] = [];
@@ -57,10 +58,11 @@ export class OcrComponent implements OnInit {
       status:this.status,
       folderId:this.folderId,
       createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
-      userId:this.userId
+      userId:this.userId,
+      userEmail:this.userEmail
     }
 
-    this.http.post('https://localhost:5001/api/fileOcrUpload', this.user)
+    this.http.post('https://localhost:5001/api/fileOcrUpload/CreateUser', this.user)
     .subscribe({
       next: _ => {
         this.getUsers();
@@ -74,7 +76,7 @@ export class OcrComponent implements OnInit {
 
 
   private getUsers = () => {
-    this.http.get('https://localhost:5001/api/fileOcrUpload')
+    this.http.get('https://localhost:5001/api/fileOcrUpload/GetAllUsers')
     .subscribe({
       next: (res) => this.users = res as FileUpload[],
       error: (err: HttpErrorResponse) => console.log(err)

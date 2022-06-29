@@ -4,4 +4,5 @@ export interface Folder{
     comment:string;
     createdDate:string;
     userId:string;
+    userEmail:string;
 }

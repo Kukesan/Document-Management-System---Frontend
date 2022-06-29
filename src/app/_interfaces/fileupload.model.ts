@@ -7,4 +7,5 @@ export interface FileUpload{
     folderId:number
     createdDate:string;
     userId:string;
+    userEmail:string;
 }

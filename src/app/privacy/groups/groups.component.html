@@ -6,18 +6,19 @@
       <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name"
         [(ngModel)]="group.name" required="">
       <div class="invalid-feedback">
-        Please Enter Issue
+        Please Enter Group Name
       </div><br>
     </div>
 
     <div class="form-group">
       <p><label for="comment" style="color: white;">Comment</label></p>
       <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment"
-        [(ngModel)]="group.comment">
+        [(ngModel)]="group.comment" required="">
+      <div class="invalid-feedback">
+        Please Enter Comment
+      </div><br>
     </div>
-    <div class="invalid-feedback">
-      Please Enter Issue
-    </div><br>
+
     <button type="submit" class="button button5" [disabled]="!group.name || !group.comment">Submit</button><br>
     <div class="row" *ngIf="submitMsg">
       <div class="col-xs-12">
@@ -49,9 +50,9 @@
       <td>{{group.createdDate}}</td>
       <button class="button button4" (click)="updateGroup(group)">Edit</button>
       <button class="button button3" (click)="deleteGroup(group.groupId)">Delete</button>
-      <button class="" (click)="addUsers(group)">Add Users</button>
+      <button class="btn btn-secondary" (click)="addUsers(group)">Add Users</button>
       &nbsp;
-      <button (click)="viewGroup(group)">View Users</button>
+      <button class="btn btn-secondary" (click)="viewGroup(group)">View Users</button>
     </tr>
   </table>
 
@@ -106,7 +107,7 @@
           [(ngModel)]="groupmessage.message">
       </div>
       <button type="submit" class="button button5">Submit</button><br>
-      <div class="row" *ngIf="submitMsg">
+      <div class="row" *ngIf="submitNoti">
         <div class="col-xs-12">
           <p class="alert alert-success">
             <strong>Notification sent Success!</strong>
@@ -114,7 +115,7 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="submitNotiMsg">
+      <div class="row" *ngIf="updateNoti">
         <div class="col-xs-12">
           <p class="alert alert-success">
             <strong>Notification Updated Success!</strong> Please Refresh the page

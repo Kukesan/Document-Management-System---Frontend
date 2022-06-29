@@ -20,6 +20,7 @@ export class FileComponent implements OnInit {
   folderId:number;
   createdDate:string;
   userId:string;
+  userEmail:string;
 
   user: UserToCreate;
   fileUploads: FileUpload[] = [];
@@ -55,7 +56,8 @@ export class FileComponent implements OnInit {
       status:this.status,
       folderId:this.folderId,
       createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
-      userId:this.userId
+      userId:this.userId,
+      userEmail:this.userEmail
     }
 
     this.http.post('https://localhost:5001/api/FileUpload/CreateUser', this.user)

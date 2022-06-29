@@ -6,4 +6,5 @@ export interface UserToCreate {
     folderId:number,
     createdDate:string
     userId:string;
+    userEmail:string;
 }

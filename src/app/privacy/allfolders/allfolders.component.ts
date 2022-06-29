@@ -20,7 +20,8 @@ export class AllfoldersComponent implements OnInit {
     name:'',
     comment:'', 
     createdDate:this.datepipe.transform((new Date),'MM/dd/yyyy h:mm:ss'),
-    userId:''
+    userId:'',
+    userEmail:''
   }
 
   ngOnInit(): void {
