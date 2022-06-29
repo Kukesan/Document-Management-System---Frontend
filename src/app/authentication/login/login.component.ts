@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         error: (err: HttpErrorResponse) => {
-          this.errorMessage = "User Email or Password Incorrect Try Again or Please Contact Admin";
+          this.errorMessage = err.message;
           this.showError = true;
 
         }

@@ -58,7 +58,7 @@
           Telephone Number is Required
         </div>
     </div>
-    <button type="submit" class="button button5" (click)="addUser()">Register</button><br> 
+    <button type="submit" class="button button5" (click)="addUser()" [disabled]="!userinformation.empId||!userinformation.firstName||!userinformation.lastName ||!userinformation.address||!userinformation.city||!userinformation.jobPosition||!userinformation.telephoneNo ">Register</button><br> 
     <div class="row" *ngIf="registerationSuccess">
       <div class="col-xs-12">
         <p class="alert alert-success">

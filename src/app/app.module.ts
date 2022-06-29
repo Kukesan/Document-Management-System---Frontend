@@ -58,6 +58,8 @@ import { GroupsComponent } from './privacy/groups/groups.component';
 import { GroupmessageComponent } from './dashboard/groupmessage/groupmessage.component';
 import { UseractivityComponent } from './privacy/useractivity/useractivity.component';
 import { EmailComponent } from './email/email.component';
+import { AllfoldersComponent } from './privacy/allfolders/allfolders.component';
+import { AlldocumentsComponent } from './privacy/alldocuments/alldocuments.component';
 
 
 
@@ -105,7 +107,9 @@ export function tokenGetter() {
     GroupsComponent,
     GroupmessageComponent,
     UseractivityComponent,
-    EmailComponent
+    EmailComponent,
+    AllfoldersComponent,
+    AlldocumentsComponent
   ],
   imports: [
     BrowserModule,
@@ -155,6 +159,8 @@ export function tokenGetter() {
       {path:'groupmessage',component:GroupmessageComponent},
       {path:'useractivity',component:UseractivityComponent},
       {path:'email',component:EmailComponent},
+      {path:'allfolders',component:AllfoldersComponent},
+      {path:'alldocuments',component:AlldocumentsComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard] },

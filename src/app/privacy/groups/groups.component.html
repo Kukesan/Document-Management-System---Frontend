@@ -1,17 +1,24 @@
 <div class="trashtable">
   <h1>Groups Details</h1>
-  <form #Form="ngForm" (ngSubmit)="addGroup()">
+  <form #Form="ngForm" (ngSubmit)="addGroup()" class="was-validated">
     <div class="form-group">
       <p><label for="name" style="color: white;">Name</label></p>
       <input type="text" class="form-control form-control-lg" placeholder="Enter Name" name="name"
-        [(ngModel)]="group.name">
+        [(ngModel)]="group.name" required="">
+      <div class="invalid-feedback">
+        Please Enter Issue
+      </div><br>
     </div>
+
     <div class="form-group">
       <p><label for="comment" style="color: white;">Comment</label></p>
       <input type="text" class="form-control form-control-lg" placeholder="Enter Comment" name="comment"
         [(ngModel)]="group.comment">
     </div>
-    <button type="submit" class="button button5">Submit</button><br>
+    <div class="invalid-feedback">
+      Please Enter Issue
+    </div><br>
+    <button type="submit" class="button button5" [disabled]="!group.name || !group.comment">Submit</button><br>
     <div class="row" *ngIf="submitMsg">
       <div class="col-xs-12">
         <p class="alert alert-success">
@@ -62,12 +69,12 @@
       <tbody>
         <tr style="color: aliceblue;" *ngFor="let userInformation of userInformations">
           <!-- <ng-container *ngIf="userInformation.groupId==-1"> -->
-            <td style="color: white;">{{userInformation.empId}}</td>
-            <td style="color: white;">{{userInformation.userEmail}}</td>
-            <td style="color: white;">{{userInformation.firstName}}</td>
-            <td style="color: white;">
-              <button (click)="addToGroup(userInformation)">Add To Group</button>
-            </td>
+          <td style="color: white;">{{userInformation.empId}}</td>
+          <td style="color: white;">{{userInformation.userEmail}}</td>
+          <td style="color: white;">{{userInformation.firstName}}</td>
+          <td style="color: white;">
+            <button (click)="addToGroup(userInformation)">Add To Group</button>
+          </td>
           <!-- </ng-container> -->
         </tr>
       </tbody>

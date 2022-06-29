@@ -94,7 +94,7 @@ export class FoldersComponent implements OnInit {
   currentfolderId:number;
   
   private getUsers = () => {
-    this.http.get('https://localhost:5001/api/FileUpload')
+    this.http.get('https://localhost:5001/api/FileUpload/all-user')
     .subscribe({
       next: (res) => this.fileUploads = res as FileUpload[],
       error: (err: HttpErrorResponse) => console.log(err)

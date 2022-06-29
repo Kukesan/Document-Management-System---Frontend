@@ -1,0 +1,17 @@
+<div class="trashtable">
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Comment</th>
+      <th>Created Date</th>
+      <th>Action</th>
+    </tr>
+    <tr (click)="pop(folder)" *ngFor="let folder of folders">
+      <td>{{ folder.name }}</td>
+      <td>{{folder.comment}}</td>
+      <td>{{folder.createdDate}}</td>
+      <button class="button button4" (click)="updateFolder(folder)">Edit</button>
+      <button class="button button3" (click)="deleteFolder(folder.folderId)">Delete</button>
+    </tr>
+  </table>
+</div>

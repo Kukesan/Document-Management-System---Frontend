@@ -58,7 +58,7 @@ export class FileComponent implements OnInit {
       userId:this.userId
     }
 
-    this.http.post('https://localhost:5001/api/FileUpload', this.user)
+    this.http.post('https://localhost:5001/api/FileUpload/CreateUser', this.user)
     .subscribe({
       next: _ => {
         this.getUsers();
@@ -70,7 +70,7 @@ export class FileComponent implements OnInit {
   }
  
   private getUsers = () => {
-    this.http.get('https://localhost:5001/api/FileUpload')
+    this.http.get('https://localhost:5001/api/FileUpload/all-user')
     .subscribe({
       next: (res) => this.fileUploads = res as FileUpload[],
       error: (err: HttpErrorResponse) => console.log(err)
