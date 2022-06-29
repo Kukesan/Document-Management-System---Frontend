@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home']);
         },
         error: (err: HttpErrorResponse) => {
-          this.errorMessage = err.message;
+          this.errorMessage = "Login Failed. Contact Admin";
           this.showError = true;
 
         }

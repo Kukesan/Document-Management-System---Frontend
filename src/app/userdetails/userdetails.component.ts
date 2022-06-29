@@ -39,7 +39,7 @@ export class UserdetailsComponent implements OnInit {
         (response: any) => {
           console.log("test1");
           this.registerationSuccess=true;
-          this.router.navigate(["/dashboard"]);
+        //  this.router.navigate(["/dashboard"]);
         }
       )
   }
