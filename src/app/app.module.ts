@@ -60,6 +60,7 @@ import { UseractivityComponent } from './privacy/useractivity/useractivity.compo
 import { EmailComponent } from './email/email.component';
 import { AllfoldersComponent } from './privacy/allfolders/allfolders.component';
 import { AlldocumentsComponent } from './privacy/alldocuments/alldocuments.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 
@@ -109,7 +110,8 @@ export function tokenGetter() {
     UseractivityComponent,
     EmailComponent,
     AllfoldersComponent,
-    AlldocumentsComponent
+    AlldocumentsComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -161,6 +163,7 @@ export function tokenGetter() {
       {path:'email',component:EmailComponent},
       {path:'allfolders',component:AllfoldersComponent},
       {path:'alldocuments',component:AlldocumentsComponent},
+      {path:'terms',component:TermsComponent},
       //{ path: 'company', loadChildren: () => import('./company/company.module').then(m => m.CompanyModule), canActivate: [AuthGuard] },
       { path: 'authentication', loadChildren: () => import('./authentication/authentication.module').then(m => m.AuthenticationModule) },
       { path: 'privacy', component: PrivacyComponent, canActivate: [AuthGuard, AdminGuard] },

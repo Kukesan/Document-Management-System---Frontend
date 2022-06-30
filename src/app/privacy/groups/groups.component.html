@@ -1,5 +1,6 @@
 <div class="trashtable">
-  <h1>Groups Details</h1>
+  <h1 style="color:white ;">Groups</h1>
+  <h2>Groups Details</h2>
   <form #Form="ngForm" (ngSubmit)="addGroup()" class="was-validated">
     <div class="form-group">
       <p><label for="name" style="color: white;">Name</label></p>
@@ -57,7 +58,7 @@
   </table>
 
   <section class="users">
-    <h1 *ngIf='!isView'>Users Details</h1>
+    <h2 *ngIf='!isView'>Users Details</h2>
     <table class="table table-striped" *ngIf='!isView'>
       <thead>
         <tr style="color:white;font-size: 20px;">
